@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BlankFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="@dimen/_14sdp"
+        android:text="Pupuk  Urea is a Source of  Nitrogen, as an essential nutrient cruciial for Crop growth and Development.
+Urea is the most important nitrogenous fertilizer in the Country because of its high N content (46%).
+The chemical Name of UREA is carbamide, the diamide of Carbonic acid. Its Formula is HNCONH2 .
+" />
+
+</FrameLayout>

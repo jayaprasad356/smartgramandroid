@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Smartgram</string>
+
+    <string-array name="Occupation">
+        <item>"Occupation"</item>
+        <item>"Farmer"</item>
+        <item>"Business"</item>
+        <item>"Doctor"</item>
+        <item>"Lawyer"</item>
+        <item>"Others"</item>
+    </string-array>
+
+    <string-array name="Diseases">
+        <item>"Choose Diseases"</item>
+    </string-array>
+
+    <string-array name="select">
+        <item>"Select Category"</item>
+    </string-array>
+
+    <string-array name="Gender">
+        <item>"Gender"</item>
+        <item>"Male"</item>
+        <item>"Female"</item>
+        <item>"Others"</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
