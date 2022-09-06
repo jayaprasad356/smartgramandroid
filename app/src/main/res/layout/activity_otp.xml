@@ -105,8 +105,6 @@
             android:layout_marginBottom="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_10sdp"/>
 
-        
-
     </LinearLayout>
 
     <TextView
@@ -116,7 +114,6 @@
         android:textColor="@color/black"
         android:textSize="@dimen/_16sdp"
         android:layout_marginStart="@dimen/_20sdp"/>
-
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
@@ -129,9 +126,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/_40sdp"
         android:padding="@dimen/_10sdp"
-        app:cornerRadius="@dimen/_8sdp"
-        />
-
-
+        app:cornerRadius="@dimen/_8sdp" />
 
 </LinearLayout>

@@ -13,28 +13,27 @@
         android:background="@color/primary">
 
         <LinearLayout
+            android:id="@+id/linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linear"
-            android:padding="@dimen/_10sdp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp">
 
-                <ImageView
-                    android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
-                    android:id="@+id/backimg"
-                    android:src="@drawable/ic_back"
-                    android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/backimg"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_back" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Registration"
-                android:textSize="@dimen/_16sdp"
-                android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/_8sdp"
-                />
+                android:text="Registration"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
 
@@ -46,24 +45,16 @@
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_60sdp"
-        android:background="@drawable/greystroks"
-        >
-
+        android:background="@drawable/greystroks">
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-
-
-
+                android:orientation="vertical">
 
         <EditText
             android:layout_width="match_parent"
@@ -135,10 +126,10 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:background="@drawable/greybackground"
                 android:entries="@array/Gender"
-                android:padding="15dp" />
+                android:padding="@dimen/_12sdp" />
 
         </LinearLayout>
 
@@ -216,17 +207,10 @@
             android:textAllCaps="false"
             android:textSize="@dimen/_12sdp" />
 
-
             </LinearLayout>
-
 
         </ScrollView>
 
-
-
-
     </RelativeLayout>
-
-
 
 </RelativeLayout>

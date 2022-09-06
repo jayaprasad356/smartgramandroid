@@ -19,12 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/linear"
-            android:layout_margin="15dp"
+            android:layout_margin="@dimen/_12sdp"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
                 android:id="@+id/backimg"
                 android:src="@drawable/ic_back"
                 android:scaleType="centerCrop"
@@ -34,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wallet History"
-                android:textSize="20dp"
+                android:textSize="@dimen/_18sdp"
                 android:textColor="@color/white"
                 android:textStyle="normal"/>
 
@@ -44,17 +44,17 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="@dimen/_120sdp"
         android:orientation="vertical"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/_10sdp"
         android:background="@drawable/whitebackground">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your Balance"
-            android:textSize="20dp"
-            android:layout_margin="10dp"
+            android:textSize="@dimen/_17sdp"
+            android:layout_margin="@dimen/_8sdp"
             android:textColor="@color/black"/>
 
         <LinearLayout
@@ -65,19 +65,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:text="Amount"
                 android:textColor="#CFCFCF"
                 android:drawableEnd="@drawable/ic_grey_rupee"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/_15sdp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
                 android:textColor="#CFCFCF"
                 android:text="1500.00"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/_15sdp"/>
 
         </LinearLayout>
 
@@ -85,10 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/grey"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_margin="@dimen/_10sdp"/>
 
         <Button
             android:layout_width="match_parent"
@@ -96,11 +92,11 @@
             android:layout_gravity="center"
             android:id="@+id/walletbtn"
             android:backgroundTint="@color/green"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
             android:text="Recharge Your Wallet"
             android:textAllCaps="false"
-            android:textSize="15dp" />
+            android:textSize="@dimen/_11sdp" />
 
 
     </LinearLayout>

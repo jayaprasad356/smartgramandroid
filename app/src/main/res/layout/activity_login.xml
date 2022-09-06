@@ -13,8 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_130sdp"
         android:background="@color/green"
-        android:layout_marginBottom="@dimen/_100sdp"
-        >
+        android:layout_marginBottom="@dimen/_100sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,8 +61,7 @@
         android:padding="@dimen/_14sdp"
         android:textColor="@color/darkgray"
         android:layout_marginLeft="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_20sdp"
-        />
+        android:layout_marginRight="@dimen/_20sdp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -90,8 +88,7 @@
         android:padding="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_100sdp"
         android:layout_marginRight="@dimen/_100sdp"
-        app:cornerRadius="@dimen/_8sdp"
-        />
+        app:cornerRadius="@dimen/_8sdp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -101,8 +98,5 @@
         android:textColor="@color/darkgray"
         android:layout_gravity="center"
         android:textSize="@dimen/_10sdp"/>
-
-
-
 
 </LinearLayout>

@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -53,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Welcome,Gram Mitra"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="@dimen/_18sdp"
                 android:textColor="@color/white"/>
 
             <EditText
@@ -67,18 +66,16 @@
                 android:padding="@dimen/_12sdp"
                 android:layout_marginLeft="@dimen/_20sdp"
                 android:layout_marginRight="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_20sdp"
-              />
+                android:layout_marginTop="@dimen/_20sdp" />
 
         </LinearLayout>
 
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_height="@dimen/_140sdp"
+            android:layout_marginStart="@dimen/_18sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:layout_marginEnd="@dimen/_18sdp"
             android:background="@drawable/farming">
 
         </RelativeLayout>
@@ -86,15 +83,15 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_margin="@dimen/_8sdp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Category"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_8sdp"
                 android:textColor="@color/black"
-                android:textSize="20dp"/>
+                android:textSize="@dimen/_18sdp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -102,30 +99,26 @@
                 android:text="view all"
                 android:id="@+id/view_txt"
                 android:textColor="@color/green"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/_8sdp"
                 android:layout_alignParentEnd="true"
-                android:textSize="18dp"/>
+                android:textSize="@dimen/_18sdp"/>
 
         </RelativeLayout>
-
 
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="none"
-            >
-
-
+            android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="@dimen/_150sdp"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="140dp"
-                android:layout_height="150dp"
-                android:layout_margin="15dp" >
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_17sdp" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -133,53 +126,26 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="140dp"
-                        android:layout_height="120dp"
-                        android:src="@drawable/paddy" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Paddy"
-                        android:layout_margin="5dp"
-                        android:textColor="@color/black"
-                        android:textSize="15dp" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="140dp"
-                android:layout_height="150dp"
-                android:layout_margin="15dp" >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="140dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_90sdp"
                         android:src="@drawable/paddy"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Paddy"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="@dimen/_15sdp" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="140dp"
-                android:layout_height="150dp"
-                android:layout_margin="15dp" >
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_17sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -187,26 +153,26 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="140dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_90sdp"
                         android:src="@drawable/paddy"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Paddy"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="@dimen/_15sdp" />
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="140dp"
-                android:layout_height="150dp"
-                android:layout_margin="20dp" >
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_17sdp" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -214,17 +180,44 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="140dp"
-                        android:layout_height="120dp"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_90sdp"
                         android:src="@drawable/paddy"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Paddy"
-                        android:layout_margin="5dp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:textColor="@color/black"
-                        android:textSize="15dp" />
+                        android:textSize="@dimen/_15sdp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_margin="@dimen/_17sdp" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_90sdp"
+                        android:src="@drawable/paddy"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Paddy"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15sdp" />
 
                 </LinearLayout>
 
@@ -238,15 +231,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/select"
-            android:padding="15dp"
-            android:layout_margin="15dp"
+            android:padding="@dimen/_15sdp"
+            android:layout_margin="@dimen/_15sdp"
             android:background="@drawable/greenbackground"/>
-
 
     </LinearLayout>
 
-
     </ScrollView>
-
 
 </FrameLayout>

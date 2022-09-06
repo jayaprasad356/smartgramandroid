@@ -16,15 +16,14 @@
         app:tabTextColor="@color/grey"
         app:tabSelectedTextColor="@color/black"
         app:tabIndicatorColor="@color/white"
-        app:tabIndicatorHeight="3dp"
-        android:layout_marginTop="0dp">
+        app:tabIndicatorHeight="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_50sdp">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Address"
             android:id="@+id/address">
-
         </com.google.android.material.tabs.TabItem>
 
         <com.google.android.material.tabs.TabItem
@@ -32,7 +31,6 @@
             android:layout_height="wrap_content"
             android:text="Checkout"
             android:id="@+id/checkout">
-
         </com.google.android.material.tabs.TabItem>
 
         <com.google.android.material.tabs.TabItem
@@ -40,7 +38,6 @@
             android:layout_height="wrap_content"
             android:text="Payment"
             android:id="@+id/payment">
-
         </com.google.android.material.tabs.TabItem>
 
     </com.google.android.material.tabs.TabLayout>
@@ -48,10 +45,7 @@
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="0dp"
         android:id="@+id/viewpager">
-
     </androidx.viewpager.widget.ViewPager>
-
 
 </LinearLayout>

@@ -46,7 +46,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -54,14 +54,14 @@
                     android:layout_height="wrap_content"
                     android:text="Prasad"
                     android:textColor="@color/white"
-                    android:textSize="20dp" />
+                    android:textSize="@dimen/_18sdp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="+91 9876323221"
                     android:textColor="@color/white"
-                    android:textSize="13dp" />
+                    android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
 
@@ -70,7 +70,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/_8sdp"
             android:src="@drawable/ic_edit"
             android:layout_alignParentRight="true"/>
 
@@ -78,27 +78,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/_50sdp"
         android:orientation="horizontal"
         android:background="@drawable/whitebackground"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-
-        >
+        android:layout_marginTop="@dimen/_20sdp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Home"
             android:drawableTint="@color/darkgray"
-
-            android:textSize="20dp"
+            android:textSize="@dimen/_17sdp"
             android:drawableStart="@drawable/ic_baseline_home_24"
-            android:drawablePadding="10dp"
-            android:layout_margin="5dp"
-            android:padding="10dp"
+            android:drawablePadding="@dimen/_10sdp"
+            android:layout_margin="@dimen/_4sdp"
+            android:padding="@dimen/_10sdp"
             android:drawableEnd="@drawable/ic_arrow_forward"
             android:layout_gravity="center"
             android:textColor="@color/darkgray"/>
@@ -107,24 +104,23 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_50sdp"
             android:orientation="horizontal"
             android:background="@drawable/whitebackground"
             android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_5sdp">
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Orders"
-                android:textSize="20dp"
+                android:textSize="@dimen/_17sdp"
                 android:drawableTint="@color/darkgray"
-
                 android:drawableStart="@drawable/ic_truck"
-                android:drawablePadding="10dp"
-                android:layout_margin="5dp"
-                android:padding="10dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:padding="@dimen/_10sdp"
                 android:drawableEnd="@drawable/ic_arrow_forward"
                 android:layout_gravity="center"
                 android:textColor="@color/darkgray"/>
@@ -133,24 +129,23 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_50sdp"
             android:orientation="horizontal"
             android:background="@drawable/whitebackground"
             android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_5sdp">
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Notifications"
-                android:textSize="20dp"
+                android:textSize="@dimen/_17sdp"
                 android:drawableTint="@color/darkgray"
-
                 android:drawableStart="@drawable/ic_notifications"
-                android:drawablePadding="10dp"
-                android:layout_margin="5dp"
-                android:padding="10dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:padding="@dimen/_10sdp"
                 android:drawableEnd="@drawable/ic_arrow_forward"
                 android:layout_gravity="center"
                 android:textColor="@color/darkgray"/>
@@ -159,24 +154,23 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_50sdp"
             android:orientation="horizontal"
             android:background="@drawable/whitebackground"
             android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_5sdp">
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Change Password"
-                android:textSize="20dp"
+                android:textSize="@dimen/_17sdp"
                 android:drawableStart="@drawable/ic_sharp_lock_open_24"
-                android:drawablePadding="10dp"
-                android:layout_margin="5dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:padding="@dimen/_10sdp"
                 android:drawableTint="@color/darkgray"
-
-                android:padding="10dp"
                 android:drawableEnd="@drawable/ic_arrow_forward"
                 android:layout_gravity="center"
                 android:textColor="@color/darkgray"/>
@@ -185,24 +179,23 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_50sdp"
             android:orientation="horizontal"
             android:background="@drawable/whitebackground"
             android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_5sdp">
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Settings"
-                android:textSize="20dp"
+                android:textSize="@dimen/_17sdp"
                 android:drawableTint="@color/darkgray"
-
                 android:drawableStart="@drawable/ic_settings"
-                android:drawablePadding="10dp"
-                android:layout_margin="5dp"
-                android:padding="10dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:padding="@dimen/_10sdp"
                 android:drawableEnd="@drawable/ic_arrow_forward"
                 android:layout_gravity="center"
                 android:textColor="@color/darkgray"/>
@@ -211,22 +204,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_50sdp"
             android:orientation="horizontal"
             android:background="@drawable/whitebackground"
             android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_5sdp">
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Contact Us"
-                android:textSize="20dp"
+                android:textSize="@dimen/_17sdp"
                 android:drawableStart="@drawable/ic_calendar"
-                android:drawablePadding="10dp"
-                android:layout_margin="5dp"
-                android:padding="10dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:padding="@dimen/_10sdp"
                 android:drawableEnd="@drawable/ic_arrow_forward"
                 android:drawableTint="@color/darkgray"
                 android:layout_gravity="center"
@@ -236,30 +229,28 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/_50sdp"
             android:orientation="horizontal"
             android:background="@drawable/whitebackground"
             android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_5sdp">
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Rate Us"
-                android:textSize="20dp"
+                android:textSize="@dimen/_17sdp"
                 android:drawableStart="@drawable/ic_star"
-                android:drawablePadding="10dp"
-                android:layout_margin="5dp"
-                android:padding="10dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:layout_margin="@dimen/_4sdp"
+                android:padding="@dimen/_10sdp"
                 android:drawableTint="@color/darkgray"
-
                 android:drawableEnd="@drawable/ic_arrow_forward"
                 android:layout_gravity="center"
                 android:textColor="@color/darkgray"/>
 
         </LinearLayout>
-
 
     </LinearLayout>
 

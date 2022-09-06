@@ -10,7 +10,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="@dimen/_55sdp"
         android:id="@+id/f1fragment"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -22,8 +22,6 @@
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         android:background="@drawable/greenbackground"
-        android:layout_margin="7dp"/>
-
-
+        android:layout_margin="@dimen/_5sdp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
