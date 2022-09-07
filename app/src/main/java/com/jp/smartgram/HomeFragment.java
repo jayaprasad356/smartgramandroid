@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.util.Log;
@@ -16,9 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.jp.smartgram.adapter.CategoryAdapter;
 import com.jp.smartgram.adapter.SliderAdapterExample;
 import com.jp.smartgram.helper.ApiConfig;
 import com.jp.smartgram.helper.Constant;
+import com.jp.smartgram.model.Category;
 import com.jp.smartgram.model.Slide;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
@@ -40,6 +44,8 @@ public class HomeFragment extends Fragment {
     TextView view_txt;
     SliderView sliderView;
     Activity activity;
+    RecyclerView categoryRecycleView;
+    CategoryAdapter categoryAdapter;
     private SliderAdapterExample adapter;
 
     public HomeFragment() {
@@ -54,7 +60,9 @@ public class HomeFragment extends Fragment {
         adapter = new SliderAdapterExample(activity);
 
         view_txt = root.findViewById(R.id.view_txt);
+        categoryRecycleView = root.findViewById(R.id.categoryRecycleView);
         sliderView = root.findViewById(R.id.image_slider);
+        categoryRecycleView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
 
         view_txt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,9 +88,24 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        categoryList();
+
 
 
         return root;
+    }
+
+    private void categoryList() {
+        ArrayList<Category> categories = new ArrayList<>();
+        Category cat1 = new Category("1","paddy","https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/23/w1200X800/Farmers-.jpg");
+        Category cat2 = new Category("2","paddy","https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/23/w1200X800/Farmers-.jpg");
+        Category cat3 = new Category("3","paddy","https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/23/w1200X800/Farmers-.jpg");
+        categories.add(cat1);
+        categories.add(cat2);
+        categories.add(cat3);
+        categoryAdapter = new CategoryAdapter(activity, categories);
+        categoryRecycleView.setAdapter(categoryAdapter);
+
     }
 
     private void slideslist()

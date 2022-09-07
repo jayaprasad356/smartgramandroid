@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview"
+            app:cardCornerRadius="@dimen/_15sdp"
+            android:layout_width="@dimen/_140sdp"
+            android:layout_height="@dimen/_185sdp"
+            android:layout_margin="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgnpk"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_105sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/npk" />
+
+                <TextView
+                    android:id="@+id/tvnpk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="Pupuk NPK"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_13sdp" />
+
+                <TextView
+                    android:id="@+id/tvpohon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text="1kg/pohon/Tahun"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/tvview"
+                    tools:ignore="RtlCompat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:background="@color/green"
+                    android:padding="@dimen/_5sdp"
+                    android:text="View"
+                    android:textAlignment="center"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
