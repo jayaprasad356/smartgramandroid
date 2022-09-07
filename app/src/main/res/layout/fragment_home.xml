@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/homeFragment"
     tools:context=".HomeFragment">
 
@@ -70,15 +71,38 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_140sdp"
-            android:layout_marginStart="@dimen/_18sdp"
-            android:layout_marginTop="@dimen/_18sdp"
-            android:layout_marginEnd="@dimen/_18sdp"
-            android:background="@drawable/farming">
+            android:layout_height="@dimen/_180sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:cardCornerRadius="@dimen/_20sdp"
+            >
 
-        </RelativeLayout>
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/image_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="2"
+                app:sliderStartAutoCycle="true" />
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
 
         <RelativeLayout
             android:layout_width="match_parent"

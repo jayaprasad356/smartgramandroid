@@ -27,91 +27,28 @@
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_20sdp"/>
 
-    <LinearLayout
+    <in.aabhasjindal.otptextview.OtpTextView
+        android:id="@+id/otp_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:textColor="@color/black"
+        app:height="40dp"
+        app:width="40dp"
+        app:bar_height="2dp"
+        app:length="6"
+        app:otp_box_background="@drawable/edittext_curve_bg"
+        app:otp_text_size="24dp"
+        android:layout_marginTop="20dp"
+        />
 
-        <EditText
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:background="@drawable/greenstrocks"
-            android:textColor="@color/black"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:maxLength="1"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"/>
-
-        <EditText
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:background="@drawable/greenstrocks"
-            android:textColor="@color/black"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:maxLength="1"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"/>
-        <EditText
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:background="@drawable/greenstrocks"
-            android:textColor="@color/black"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:layout_marginRight="@dimen/_10sdp"
-
-            android:maxLength="1"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"/>
-
-        <EditText
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:background="@drawable/greenstrocks"
-            android:textColor="@color/black"
-            android:inputType="number"
-            android:layout_marginRight="@dimen/_10sdp"
-
-            android:textAlignment="center"
-            android:maxLength="1"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"/>
-
-        <EditText
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:background="@drawable/greenstrocks"
-            android:textColor="@color/black"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:maxLength="1"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"/>
-
-        <EditText
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:background="@drawable/greenstrocks"
-            android:textColor="@color/black"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:maxLength="1"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_10sdp"/>
-
-    </LinearLayout>
 
     <TextView
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OTP sent to 9877446890"
-        android:textColor="@color/black"
+        android:textColor="@color/darkgray"
         android:textSize="@dimen/_16sdp"
         android:layout_marginStart="@dimen/_20sdp"/>
 

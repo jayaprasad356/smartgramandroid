@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationActivity">
+    tools:context=".activities.RegistrationActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -43,8 +42,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_60sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
         android:background="@drawable/greystroks">
 
         <ScrollView
@@ -55,157 +54,194 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:hint="Name">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Name"
-            android:padding="@dimen/_12sdp"
-            android:textColor="@color/darkgray"
-            android:textSize="@dimen/_12sdp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Mobile Number"
-            android:padding="@dimen/_12sdp"
-            android:textColor="@color/darkgray"
-            android:textSize="@dimen/_12sdp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:hint="Mobile Number">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Password"
-            android:padding="@dimen/_12sdp"
-            android:textColor="@color/darkgray"
-            android:textSize="@dimen/_12sdp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Confrim Password"
-            android:padding="@dimen/_12sdp"
-            android:textColor="@color/darkgray"
-            android:textSize="@dimen/_12sdp" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:hint="Password">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:orientation="horizontal"
-            android:weightSum="2">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        />
 
-            <Spinner
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/greybackground"
-                android:entries="@array/Occupation"
-                android:padding="15dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:hint="Confirm Password">
 
-            <Spinner
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:background="@drawable/greybackground"
-                android:entries="@array/Gender"
-                android:padding="@dimen/_12sdp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        />
 
-        </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Email Id"
-            android:padding="@dimen/_12sdp"
-            android:textColor="@color/darkgray"
-            android:textSize="@dimen/_12sdp" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Address"
-            android:padding="@dimen/_12sdp"
-            android:textColor="@color/darkgray"
-            android:textSize="@dimen/_12sdp" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Village Name"
-            android:padding="@dimen/_12sdp"
-            android:textColor="@color/darkgray"
-            android:textSize="@dimen/_12sdp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Pincode"
-            android:padding="@dimen/_12sdp"
-            android:textColor="@color/darkgray"
-            android:textSize="@dimen/_12sdp" />
+                    <Spinner
+                        android:id="@+id/spinOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/greybackground"
+                        android:entries="@array/Occupation"
+                        android:padding="15dp" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:background="@drawable/greybackground"
-            android:hint="District"
-            android:padding="@dimen/_12sdp"
-            android:textColor="@color/darkgray"
-            android:textSize="@dimen/_12sdp" />
+                    <Spinner
+                        android:id="@+id/spinGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/greybackground"
+                        android:entries="@array/Gender"
+                        android:padding="@dimen/_12sdp" />
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/green"
-            android:layout_marginStart="@dimen/_20sdp"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="@dimen/_20sdp"
-            android:padding="@dimen/_14sdp"
-            android:text="Click here to Register"
-            app:cornerRadius="@dimen/_8sdp"
-            android:textAllCaps="false"
-            android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:hint="Email Id">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:hint="Address">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:hint="Village Name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etVillageName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:hint="Pincode">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPincode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:hint="District">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDistrict"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRegister"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:backgroundTint="@color/green"
+                    android:padding="@dimen/_14sdp"
+                    android:text="Click here to Register"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_12sdp"
+                    app:cornerRadius="@dimen/_8sdp" />
 
             </LinearLayout>
 
