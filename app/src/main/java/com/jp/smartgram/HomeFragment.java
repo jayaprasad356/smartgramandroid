@@ -22,6 +22,7 @@ import com.jp.smartgram.adapter.CategoryAdapter;
 import com.jp.smartgram.adapter.SliderAdapterExample;
 import com.jp.smartgram.helper.ApiConfig;
 import com.jp.smartgram.helper.Constant;
+import com.jp.smartgram.helper.Session;
 import com.jp.smartgram.model.Category;
 import com.jp.smartgram.model.Slide;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
@@ -46,7 +47,9 @@ public class HomeFragment extends Fragment {
     Activity activity;
     RecyclerView categoryRecycleView;
     CategoryAdapter categoryAdapter;
+    Session session;
     private SliderAdapterExample adapter;
+    TextView tvTitle;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -58,10 +61,13 @@ public class HomeFragment extends Fragment {
         root =  inflater.inflate(R.layout.fragment_home, container, false);
         activity = getActivity();
         adapter = new SliderAdapterExample(activity);
+        session = new Session(activity);
 
         view_txt = root.findViewById(R.id.view_txt);
+        tvTitle = root.findViewById(R.id.tvTitle);
         categoryRecycleView = root.findViewById(R.id.categoryRecycleView);
         sliderView = root.findViewById(R.id.image_slider);
+        tvTitle.setText("Hi, "+session.getData(Constant.NAME));
         categoryRecycleView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false));
 
         view_txt.setOnClickListener(new View.OnClickListener() {
@@ -96,15 +102,43 @@ public class HomeFragment extends Fragment {
     }
 
     private void categoryList() {
-        ArrayList<Category> categories = new ArrayList<>();
-        Category cat1 = new Category("1","paddy","https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/23/w1200X800/Farmers-.jpg");
-        Category cat2 = new Category("2","paddy","https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/23/w1200X800/Farmers-.jpg");
-        Category cat3 = new Category("3","paddy","https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/23/w1200X800/Farmers-.jpg");
-        categories.add(cat1);
-        categories.add(cat2);
-        categories.add(cat3);
-        categoryAdapter = new CategoryAdapter(activity, categories);
-        categoryRecycleView.setAdapter(categoryAdapter);
+        Map<String, String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        JSONObject object = new JSONObject(response);
+                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<Category> categories = new ArrayList<>();
+
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+
+                            if (jsonObject1 != null) {
+                                Category group = g.fromJson(jsonObject1.toString(), Category.class);
+                                categories.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        categoryAdapter = new CategoryAdapter(activity, categories);
+                        categoryRecycleView.setAdapter(categoryAdapter);
+
+
+                    } else {
+                        Toast.makeText(activity, "" + String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.CATEGORY_LIST_URL, params, true);
+
+
 
     }
 

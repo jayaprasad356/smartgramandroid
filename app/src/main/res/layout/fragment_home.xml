@@ -31,6 +31,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -107,7 +108,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp">
+            android:layout_margin="@dimen/_6sdp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,14 +119,18 @@
                 android:textSize="@dimen/_18sdp"/>
 
             <TextView
+                android:id="@+id/view_txt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="view all"
-                android:id="@+id/view_txt"
-                android:textColor="@color/green"
-                android:layout_margin="@dimen/_8sdp"
                 android:layout_alignParentEnd="true"
-                android:textSize="@dimen/_18sdp"/>
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:text="view all"
+                android:visibility="invisible"
+                android:textColor="@color/green"
+                android:textSize="@dimen/_18sdp" />
 
         </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
@@ -143,6 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/select"
+            android:visibility="invisible"
             android:padding="@dimen/_15sdp"
             android:layout_margin="@dimen/_15sdp"
             android:background="@drawable/greenbackground"/>

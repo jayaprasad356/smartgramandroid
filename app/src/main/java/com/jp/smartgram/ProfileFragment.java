@@ -1,5 +1,7 @@
 package com.jp.smartgram;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,10 +9,21 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.jp.smartgram.helper.Constant;
+import com.jp.smartgram.helper.Session;
 
 public class ProfileFragment extends Fragment {
 
-    View rootview;
+    View root;
+    ImageView imgEdit;
+    Activity activity;
+    TextView tvName,tvMobile;
+    Session session;
+    LinearLayout logout;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -20,8 +33,29 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-         rootview = inflater.inflate(R.layout.fragment_profile, container, false);
+        root = inflater.inflate(R.layout.fragment_profile, container, false);
+        imgEdit = root.findViewById(R.id.imgEdit);
+        tvName = root.findViewById(R.id.tvName);
+        tvMobile = root.findViewById(R.id.tvMobile);
+        logout = root.findViewById(R.id.logout);
+        activity = getActivity();
+        session = new Session(activity);
+        tvName.setText(session.getData(Constant.NAME));
+        tvMobile.setText("+91 "+session.getData(Constant.MOBILE));
+        imgEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity,UserUpdateActivity.class);
+                startActivity(intent);
+            }
+        });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                session.logoutUser(activity);
+            }
+        });
 
-        return rootview;
+        return root;
     }
 }

@@ -43,6 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         Glide.with(productActivity).load(product.getImage()).placeholder(R.drawable.npk).into(holder.imgnpk);
         holder.tvnpk.setText(product.getName());
 
+
     }
 
     @Override

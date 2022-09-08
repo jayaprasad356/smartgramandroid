@@ -7,8 +7,14 @@ public class Constant {
     public static final String LOGIN_URL = BaseUrl + "login.php";
     public static final String SIGNUP_URL = BaseUrl + "signup.php";
     public static final String SLIDES_LIST = BaseUrl + "slidelist.php";
+    public static final String UPDATE_USER_URL = BaseUrl + "updateuser.php";
+    public static final String USER_DETAILS_URL = BaseUrl + "userdetails.php";
+    public static final String CATEGORY_LIST_URL = BaseUrl + "category-list.php";
+    public static final String PRODUCT_LIST_URL = BaseUrl + "productlist.php";
     public static final String MOBILE = "mobile";
     public static final String ID = "id";
+    public static final String USER_ID = "user_id";
+    public static final String CATEGORY_ID = "category_id";
     public static final String NAME = "name";
     public static final String PASSWORD = "password";
     public static final String OCCUPATION = "occupation";
