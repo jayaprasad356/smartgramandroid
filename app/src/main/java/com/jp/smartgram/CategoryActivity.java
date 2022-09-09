@@ -1,17 +1,13 @@
 package com.jp.smartgram;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -21,7 +17,6 @@ import com.jp.smartgram.helper.ApiConfig;
 import com.jp.smartgram.helper.Constant;
 import com.jp.smartgram.model.Category;
 import com.jp.smartgram.model.Product;
-import com.smarteist.autoimageslider.SliderView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,41 +26,43 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProductActivity extends AppCompatActivity {
+public class CategoryActivity extends AppCompatActivity {
 
-
-    RecyclerView productRecycleView;
-    ProductAdapter productAdapter;
+    RecyclerView categoryRecycleView;
+    CategoryAdapter categoryAdapter;
+    ImageView backbtn;
     Activity activity;
-    String CategoryId;
-    ImageView backimg;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
+        setContentView(R.layout.activity_category);
+        activity = CategoryActivity.this;
 
+        categoryRecycleView = findViewById(R.id.categoryRecycleView);
+        backbtn = findViewById(R.id.backbtn);
 
-        backimg = findViewById(R.id.backimg);
-        productRecycleView = findViewById(R.id.productRecycleView);
-        activity = ProductActivity.this;
-
-        CategoryId = getIntent().getStringExtra(Constant.CATEGORY_ID);
-        backimg.setOnClickListener(new View.OnClickListener() {
+        backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
 
+
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,2);
-        productRecycleView.setLayoutManager(gridLayoutManager);
-        productList();
+        categoryRecycleView.setLayoutManager(gridLayoutManager);
+        categorylist();
+
+
+
     }
 
-    private void productList() {
+    private void categorylist() {
+
         Map<String, String> params = new HashMap<>();
-        params.put(Constant.CATEGORY_ID,CategoryId);
         ApiConfig.RequestToVolley((result, response) -> {
 
             if (result) {
@@ -75,20 +72,20 @@ public class ProductActivity extends AppCompatActivity {
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
-                        ArrayList<Product> products = new ArrayList<>();
+                        ArrayList<Category> categories = new ArrayList<>();
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                             if (jsonObject1 != null) {
-                                Product group = g.fromJson(jsonObject1.toString(), Product.class);
-                                products.add(group);
+                                Category group = g.fromJson(jsonObject1.toString(), Category.class);
+                                categories.add(group);
                             } else {
                                 break;
                             }
                         }
-                        productAdapter = new ProductAdapter(ProductActivity.this, products);
-                        productRecycleView.setAdapter(productAdapter);
+                        categoryAdapter = new CategoryAdapter(CategoryActivity.this, categories);
+                        categoryRecycleView.setAdapter(categoryAdapter);
 
 
                     } else {
@@ -99,8 +96,7 @@ public class ProductActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        }, activity, Constant.PRODUCT_LIST_URL, params, true);
-
+        }, activity, Constant.CATEGORY_LIST_URL, params, true);
 
 
     }

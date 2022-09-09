@@ -119,7 +119,7 @@
                 android:textSize="@dimen/_18sdp"/>
 
             <TextView
-                android:id="@+id/view_txt"
+                android:id="@+id/view_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -128,9 +128,9 @@
                 android:layout_marginEnd="@dimen/_8sdp"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:text="view all"
-                android:visibility="invisible"
                 android:textColor="@color/green"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_18sdp"
+                 />
 
         </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView

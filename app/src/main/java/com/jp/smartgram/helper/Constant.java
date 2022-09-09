@@ -28,4 +28,5 @@ public class Constant {
     public static final String SUCCESS = "success";
     public static final String MESSAGE = "message";
 
+    public static final String PRODUCT_NAME = "productname" ;
 }

@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
+import com.jp.smartgram.helper.Constant;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
@@ -16,6 +18,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     ViewPagerAdapter viewPagerAdapter;
+    TextView tv_productname;
+    String getproductname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +27,16 @@ public class ProductDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_details);
 
         addbtn = findViewById(R.id.addbtn);
+        tv_productname = findViewById(R.id.tv_productname);
+
+        getproductname = getIntent().getStringExtra(Constant.PRODUCT_NAME);
+
+
+        tv_productname.setText(""+getproductname);
+
+
+
+
 
         addbtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -38,6 +38,15 @@
         <entry key="..\:/Users/visha/AndroidStudioProjects/smartgramandroid/app/src/main/res/layout/fragment_home.xml" value="0.176" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/smartgramandroid/app/src/main/res/layout/fragment_payment.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/smartgramandroid/app/src/main/res/layout/fragment_profile.xml" value="0.176" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_category.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_checkout.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_product.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_product_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/fragment_address.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/fragment_checkout.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/product_item.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

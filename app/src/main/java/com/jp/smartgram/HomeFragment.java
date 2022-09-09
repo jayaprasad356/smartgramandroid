@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         adapter = new SliderAdapterExample(activity);
         session = new Session(activity);
 
-        view_txt = root.findViewById(R.id.view_txt);
+        view_txt = root.findViewById(R.id.view_all);
         tvTitle = root.findViewById(R.id.tvTitle);
         categoryRecycleView = root.findViewById(R.id.categoryRecycleView);
         sliderView = root.findViewById(R.id.image_slider);
@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
         view_txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),ProductActivity.class);
+                Intent intent = new Intent(getActivity(),CategoryActivity.class);
                 startActivity(intent);
             }
         });
