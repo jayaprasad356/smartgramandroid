@@ -29,4 +29,7 @@ public class Constant {
     public static final String MESSAGE = "message";
 
     public static final String PRODUCT_NAME = "productname" ;
+    public static final String PRODUCT_DESCRIPTION = "productdescription";
+    public static final String PRODUCT_IMAGE = "productimage";
+    public static final String PRODUCT_BRAND = "brand";
 }

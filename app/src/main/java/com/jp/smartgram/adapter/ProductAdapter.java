@@ -1,6 +1,5 @@
 package com.jp.smartgram.adapter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import com.jp.smartgram.ProductActivity;
 import com.jp.smartgram.ProductDetailsActivity;
 import com.jp.smartgram.R;
 import com.jp.smartgram.helper.Constant;
-import com.jp.smartgram.model.Category;
 import com.jp.smartgram.model.Product;
 
 import java.util.ArrayList;
@@ -45,7 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         final Product product = products.get(position);
 
         Glide.with(productActivity).load(product.getImage()).placeholder(R.drawable.npk).into(holder.imgnpk);
-        holder.tvnpk.setText(product.getName());
+        holder.tvnpk.setText(product.getProduct_name());
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +51,10 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             public void onClick(View view) {
                 Intent intent = new Intent(productActivity, ProductDetailsActivity.class);
 
-                intent.putExtra(Constant.PRODUCT_NAME,product.getName());
+                intent.putExtra(Constant.PRODUCT_NAME,product.getProduct_name());
+                intent.putExtra(Constant.PRODUCT_DESCRIPTION,product.getDescription());
+                intent.putExtra(Constant.PRODUCT_IMAGE,product.getImage());
+                intent.putExtra(Constant.PRODUCT_BRAND,product.getBrand());
 
 
                 productActivity.startActivity(intent);

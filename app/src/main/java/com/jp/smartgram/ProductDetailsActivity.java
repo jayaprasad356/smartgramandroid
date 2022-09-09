@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -18,8 +19,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     ViewPagerAdapter viewPagerAdapter;
-    TextView tv_productname;
-    String getproductname;
+    ImageView imgproduct;
+    TextView tv_productname,tvdescription,brand;
+    String getproductname,getdescription,getbrand,getImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +30,20 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         addbtn = findViewById(R.id.addbtn);
         tv_productname = findViewById(R.id.tv_productname);
+        tvdescription = findViewById(R.id.tvdescription);
+        imgproduct = findViewById(R.id.imgproduct);
+        brand = findViewById(R.id.brand);
 
         getproductname = getIntent().getStringExtra(Constant.PRODUCT_NAME);
+        getdescription = getIntent().getStringExtra(Constant.PRODUCT_DESCRIPTION);
+        getImage = getIntent().getStringExtra(Constant.PRODUCT_IMAGE);
+        getbrand = getIntent().getStringExtra(Constant.PRODUCT_BRAND);
 
 
         tv_productname.setText(""+getproductname);
+        tvdescription.setText(""+getdescription);
+        brand.setText(""+getbrand);
+
 
 
 
@@ -48,14 +59,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 
 
-        viewPager = findViewById(R.id.view_pager);
-        tabLayout = findViewById(R.id.tabs);
 
-        viewPagerAdapter = new ViewPagerAdapter(
-                getSupportFragmentManager());
-        viewPager.setAdapter(viewPagerAdapter);
-
-        // It is used to join TabLayout with ViewPager.
-        tabLayout.setupWithViewPager(viewPager);
     }
 }
