@@ -42,105 +42,14 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartRecycleView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_140sdp"
-        android:layout_margin="@dimen/_20sdp"
-        android:orientation="vertical"
-        android:layout_below="@+id/toolbar"
-        android:background="@drawable/whitebackground">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_100sdp"
-            android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="@dimen/_70sdp"
-            android:layout_height="@dimen/_90sdp"
-            android:src="@drawable/npk"
-            android:layout_margin="@dimen/_8sdp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NPK Urea"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:src="@drawable/ic_black_rupee"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3000"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_13sdp"/>
-
-                <ImageView
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:src="@drawable/ic_grey_rupee"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3000"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/_13sdp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1 pc"
-                    android:layout_marginStart="@dimen/_8sdp"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/_13sdp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete"
-                android:layout_centerInParent="true"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save for later"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_15sdp"/>
-
-        </RelativeLayout>
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:layout_marginBottom="@dimen/_90sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
