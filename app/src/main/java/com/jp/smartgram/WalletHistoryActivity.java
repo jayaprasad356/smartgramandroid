@@ -2,9 +2,12 @@ package com.jp.smartgram;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 public class WalletHistoryActivity extends AppCompatActivity {
@@ -22,8 +25,12 @@ public class WalletHistoryActivity extends AppCompatActivity {
         walletbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WalletHistoryActivity.this,OrdersActivity.class);
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(WalletHistoryActivity.this);
+                ViewGroup viewGroup = findViewById(android.R.id.content);
+                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.customview, viewGroup, false);
+                builder.setView(dialogView);
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
     }

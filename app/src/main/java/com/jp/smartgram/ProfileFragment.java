@@ -21,7 +21,7 @@ public class ProfileFragment extends Fragment {
     View root;
     ImageView imgEdit;
     Activity activity;
-    TextView tvName,tvMobile;
+    TextView tvName,tvMobile,tvNotification;
     Session session;
     LinearLayout logout;
 
@@ -37,7 +37,9 @@ public class ProfileFragment extends Fragment {
         imgEdit = root.findViewById(R.id.imgEdit);
         tvName = root.findViewById(R.id.tvName);
         tvMobile = root.findViewById(R.id.tvMobile);
+        tvNotification = root.findViewById(R.id.tvNotification);
         logout = root.findViewById(R.id.logout);
+
         activity = getActivity();
         session = new Session(activity);
         tvName.setText(session.getData(Constant.NAME));
@@ -53,6 +55,13 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 session.logoutUser(activity);
+            }
+        });
+        tvNotification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),NotificationActivity.class);
+                startActivity(intent);
             }
         });
 

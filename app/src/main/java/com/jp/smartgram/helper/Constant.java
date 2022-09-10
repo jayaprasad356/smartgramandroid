@@ -14,6 +14,9 @@ public class Constant {
     public static final String ADD_TO_CART_URL = BaseUrl + "add-cart.php";
     public static final String CART_LIST_URL = BaseUrl + "cartlist.php";
     public static final String DELETE_CART_URL = BaseUrl + "delete_cart.php";
+    public static final String NOTIFICATION_LIST = BaseUrl + "notifications.php";
+
+
     public static final String MOBILE = "mobile";
     public static final String ID = "id";
     public static final String USER_ID = "user_id";
@@ -41,4 +44,5 @@ public class Constant {
     public static final String PRODUCT_DESCRIPTION = "productdescription";
     public static final String PRODUCT_IMAGE = "productimage";
     public static final String PRODUCT_BRAND = "brand";
+
 }
