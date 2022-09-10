@@ -18,28 +18,28 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgnpk"
+                    android:id="@+id/imgProduct"
                     android:layout_width="@dimen/_80sdp"
                     android:layout_height="@dimen/_105sdp"
                     android:layout_gravity="center"
                     android:src="@drawable/npk" />
 
                 <TextView
-                    android:id="@+id/tvnpk"
+                    android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Pupuk NPK"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13sdp" />
 
                 <TextView
-                    android:id="@+id/tvpohon"
+                    android:id="@+id/tvPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
-                    android:text="1kg/pohon/Tahun"
+                    android:text=""
                     android:textSize="15dp" />
 
                 <TextView

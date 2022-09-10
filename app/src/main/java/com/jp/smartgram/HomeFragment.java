@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ public class HomeFragment extends Fragment {
     Session session;
     private SliderAdapterExample adapter;
     TextView tvTitle;
+    ImageView imgCart;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -65,6 +67,7 @@ public class HomeFragment extends Fragment {
 
         view_txt = root.findViewById(R.id.view_all);
         tvTitle = root.findViewById(R.id.tvTitle);
+        imgCart = root.findViewById(R.id.imgCart);
         categoryRecycleView = root.findViewById(R.id.categoryRecycleView);
         sliderView = root.findViewById(R.id.image_slider);
         tvTitle.setText("Hi, "+session.getData(Constant.NAME));
@@ -91,6 +94,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onIndicatorClicked(int position) {
                 Log.i("GGG", "onIndicatorClicked: " + sliderView.getCurrentPagePosition());
+            }
+        });
+        imgCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),CartActivity.class);
+                startActivity(intent);
             }
         });
 

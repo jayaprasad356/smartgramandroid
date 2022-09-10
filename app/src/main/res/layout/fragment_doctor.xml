@@ -6,16 +6,16 @@
     tools:context=".DoctorFragment">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_90sdp"
         android:layout_marginTop="0dp"
-        android:background="@color/green"
-        android:id="@+id/toolbar">
+        android:background="@color/green">
 
         <LinearLayout
+            android:id="@+id/linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linear"
             android:layout_margin="@dimen/_13sdp"
             android:orientation="horizontal">
 
@@ -23,9 +23,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Patient Details"
-                android:textSize="@dimen/_15sdp"
                 android:textColor="@color/white"
-                android:textStyle="normal"/>
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="normal" />
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
@@ -43,89 +43,123 @@
             android:layout_height="@dimen/_450sdp"
             android:orientation="vertical">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_18sdp"
-            android:layout_marginEnd="@dimen/_13sdp"
-            android:textSize="@dimen/_13sdp"
-            android:padding="@dimen/_13sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Name"
-            android:textColor="#000" />
-
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_18sdp"
-                android:layout_marginEnd="@dimen/_13sdp"
-                android:textSize="@dimen/_13sdp"
-                android:padding="@dimen/_13sdp"
-                android:background="@drawable/greybackground"
-                android:hint="Mobile Number"
-                android:textColor="#000" />
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:hint="Name">
 
-            <EditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="16" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_18sdp"
-                android:layout_marginEnd="@dimen/_13sdp"
-                android:textSize="@dimen/_13sdp"
-                android:padding="@dimen/_13sdp"
-                android:background="@drawable/greybackground"
-                android:hint="Age"
-                android:textColor="#000" />
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:hint="Mobile Number">
 
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_13sdp"
-            android:layout_marginEnd="@dimen/_13sdp"
-            android:background="@drawable/greybackground"
-            android:entries="@array/Diseases"
-            android:padding="@dimen/_13sdp" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="10" />
 
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_18sdp"
-                android:layout_marginEnd="@dimen/_13sdp"
-                android:textSize="@dimen/_13sdp"
-                android:padding="@dimen/_13sdp"
-                android:background="@drawable/greybackground"
-                android:hint="please"
-                android:textColor="#000" />
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:hint="Age">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_110sdp"
-            android:layout_marginStart="@dimen/_13sdp"
-            android:layout_marginTop="@dimen/_18sdp"
-            android:layout_marginEnd="@dimen/_13sdp"
-            android:textSize="@dimen/_13sdp"
-            android:padding="@dimen/_13sdp"
-            android:background="@drawable/greybackground"
-            android:hint="Description"
-            android:textColor="#000"
-            android:textAlignment="gravity"
-            android:gravity="start" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="3" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:hint="Diseases">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDiseases"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="3" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:hint="Place">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="14"
+                     />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/spinner"
+                android:layout_marginTop="@dimen/_18sdp"
+                android:layout_marginStart="@dimen/_13sdp"
+                android:textSize="@dimen/_12sdp"
+                android:text="Description"/>
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:lines="8"
+                android:maxLines="10"
+                android:minLines="4"
+                android:layout_marginStart="@dimen/_13sdp"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:background="@drawable/greybackground"
+                android:scrollbars="vertical" />
 
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnBookappointment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:backgroundTint="@color/green"
             android:layout_margin="@dimen/_8sdp"
+            android:backgroundTint="@color/green"
             android:padding="@dimen/_13sdp"
-            android:id="@+id/bookbtn"
             android:text="Book an Appointment"
             android:textAllCaps="false"
             android:textSize="@dimen/_13sdp" />

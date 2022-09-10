@@ -42,21 +42,21 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Product product = products.get(position);
 
-        Glide.with(productActivity).load(product.getImage()).placeholder(R.drawable.npk).into(holder.imgnpk);
-        holder.tvnpk.setText(product.getProduct_name());
+        Glide.with(productActivity).load(product.getImage()).placeholder(R.drawable.logo).into(holder.imgProduct);
+        holder.tvName.setText(product.getProduct_name());
+        holder.tvPrice.setText("₹ "+product.getPrice());
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(productActivity, ProductDetailsActivity.class);
-
+                intent.putExtra(Constant.ID,product.getId());
                 intent.putExtra(Constant.PRODUCT_NAME,product.getProduct_name());
+                intent.putExtra(Constant.PRICE,product.getPrice());
                 intent.putExtra(Constant.PRODUCT_DESCRIPTION,product.getDescription());
                 intent.putExtra(Constant.PRODUCT_IMAGE,product.getImage());
                 intent.putExtra(Constant.PRODUCT_BRAND,product.getBrand());
-
-
                 productActivity.startActivity(intent);
 
             }
@@ -73,16 +73,13 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
 
-        final ImageView imgnpk;
-        final TextView tvnpk;
-        final TextView tvpohon;
-        final TextView tvview;
+        final ImageView imgProduct;
+        final TextView tvName,tvPrice;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
-            imgnpk = itemView.findViewById(R.id.imgnpk);
-            tvnpk = itemView.findViewById(R.id.tvnpk);
-            tvpohon = itemView.findViewById(R.id.tvpohon);
-            tvview = itemView.findViewById(R.id.tvview);
+            imgProduct = itemView.findViewById(R.id.imgProduct);
+            tvName = itemView.findViewById(R.id.tvName);
+            tvPrice = itemView.findViewById(R.id.tvPrice);
 
         }
     }

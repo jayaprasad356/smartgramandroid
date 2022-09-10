@@ -1,15 +1,16 @@
 package com.jp.smartgram.model;
 
 public class Product {
-    String id, product_name,category_name,image,description,brand;
+    String id, product_name,category_name,image,description,brand,price;
 
-    public Product(String id, String product_name, String category_name, String image, String description, String brand) {
+    public Product(String id, String product_name, String category_name, String image, String description, String brand, String price) {
         this.id = id;
         this.product_name = product_name;
         this.category_name = category_name;
         this.image = image;
         this.description = description;
         this.brand = brand;
+        this.price = price;
     }
 
     public String getId() {
@@ -58,5 +59,13 @@ public class Product {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

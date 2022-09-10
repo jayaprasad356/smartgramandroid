@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_140sdp"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/_5sdp"
         android:orientation="vertical"
         android:background="@drawable/whitebackground">
@@ -19,7 +19,7 @@
             <ImageView
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_90sdp"
-                android:id="@+id/imgpack"
+                android:id="@+id/imgProduct"
                 android:src="@drawable/npk"
                 android:layout_margin="@dimen/_8sdp"/>
 
@@ -30,10 +30,10 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvurea"
+                    android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="NPK Urea"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="@dimen/_13sdp"/>
 
@@ -42,69 +42,40 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="@dimen/_18sdp"
-                        android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/ic_black_rupee"/>
-
                     <TextView
-                        android:id="@+id/tvnumber"
+                        android:id="@+id/tvPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3000"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_13sdp"/>
 
-                    <ImageView
-                        android:layout_width="@dimen/_18sdp"
-                        android:layout_height="@dimen/_18sdp"
-                        android:src="@drawable/ic_grey_rupee"/>
+
 
                     <TextView
-                        android:id="@+id/tvdiscount"
+                        android:id="@+id/tvQuantity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3000"
-                        android:textColor="@color/grey"
-                        android:textSize="@dimen/_13sdp"/>
-
-                    <TextView
-                        android:id="@+id/tvpc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1 pc"
+                        android:text="1"
                         android:layout_marginStart="@dimen/_8sdp"
                         android:textColor="@color/grey"
                         android:textSize="@dimen/_13sdp"/>
 
                 </LinearLayout>
+                <TextView
+                    android:id="@+id/tvDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delete"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/_13sdp"/>
+
 
             </LinearLayout>
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_8sdp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete"
-                android:layout_centerInParent="true"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save for later"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_13sdp"/>
-
-        </RelativeLayout>
 
     </LinearLayout>
 

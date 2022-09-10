@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,18 +24,20 @@ public class DoctorListActivity extends AppCompatActivity {
     ImageView imglist;
     RecyclerView listRecycleView;
     DoctorListAdapter doctorListAdapter;
+    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_list);
 
+        activity = DoctorListActivity.this;
         listRecycleView= findViewById(R.id.listRecycleView);
         tvName= findViewById(R.id.tvName);
         btnmake= findViewById(R.id.btnmake);
         imglist= findViewById(R.id.imglist);
 
-        listRecycleView.setLayoutManager(new LinearLayoutManager(DoctorListActivity.this, LinearLayoutManager.VERTICAL, false));
+        listRecycleView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
 
         doctorList();
     }

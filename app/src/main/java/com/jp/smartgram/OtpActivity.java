@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.jp.smartgram.activities.LoginActivity;
+
 public class OtpActivity extends AppCompatActivity {
 
     Button loginbtn;
@@ -21,8 +23,11 @@ public class OtpActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OtpActivity.this,MainActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(OtpActivity.this, LoginActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+                finish();
             }
         });
     }

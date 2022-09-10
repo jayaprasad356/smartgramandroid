@@ -46,16 +46,27 @@
         android:id="@+id/cartRecycleView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_60sdp"
-        android:layout_marginBottom="@dimen/_90sdp"
         android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"/>
+        android:layout_marginTop="@dimen/_60sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_90sdp" />
+    <ImageView
+        android:id="@+id/imgEmpty"
+        android:visibility="gone"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/cartempty"/>
 
     <RelativeLayout
+        android:id="@+id/r1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/_18sdp"
+        android:layout_marginStart="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginEnd="@dimen/_18sdp"
+        android:layout_marginBottom="@dimen/_18sdp"
         android:background="@drawable/whitebackground"
         android:orientation="horizontal">
 
@@ -66,20 +77,21 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tvTotalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:drawableStart="@drawable/ic_black_rupee"
-                android:text="3000.00"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
 
             <TextView
+                android:id="@+id/tvQuantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_28sdp"
-                android:text="1 item"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text=""
                 android:textColor="@color/grey"
                 android:textSize="@dimen/_15sdp" />
 
@@ -90,12 +102,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:backgroundTint="@color/green"
-            android:paddingLeft="@dimen/_28sdp"
-            android:paddingTop="@dimen/_8sdp"
-            android:paddingRight="@dimen/_28sdp"
-            android:paddingBottom="@dimen/_8sdp"
             android:text="Continue"
             android:textAllCaps="false"
             android:textSize="@dimen/_13sdp" />

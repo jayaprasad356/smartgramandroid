@@ -1,8 +1,8 @@
 package com.jp.smartgram.helper;
 
 public class Constant {
-    public static final String MainBaseUrl = "https://smartgram.greymatterworks.in/";
-    //public static final String MainBaseUrl = "http://192.168.43.38/smartgram/";
+    //public static final String MainBaseUrl = "https://smartgram.greymatterworks.in/";
+    public static final String MainBaseUrl = "http://192.168.43.38/smartgram/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String LOGIN_URL = BaseUrl + "login.php";
     public static final String SIGNUP_URL = BaseUrl + "signup.php";
@@ -11,10 +11,16 @@ public class Constant {
     public static final String USER_DETAILS_URL = BaseUrl + "userdetails.php";
     public static final String CATEGORY_LIST_URL = BaseUrl + "category-list.php";
     public static final String PRODUCT_LIST_URL = BaseUrl + "productlist.php";
+    public static final String ADD_TO_CART_URL = BaseUrl + "add-cart.php";
+    public static final String CART_LIST_URL = BaseUrl + "cartlist.php";
+    public static final String DELETE_CART_URL = BaseUrl + "delete_cart.php";
     public static final String MOBILE = "mobile";
     public static final String ID = "id";
     public static final String USER_ID = "user_id";
     public static final String CATEGORY_ID = "category_id";
+    public static final String PRODUCT_ID = "product_id";
+    public static final String CART_ID = "cart_id";
+    public static final String QUANTITY = "quantity";
     public static final String NAME = "name";
     public static final String PASSWORD = "password";
     public static final String OCCUPATION = "occupation";
@@ -29,6 +35,9 @@ public class Constant {
     public static final String MESSAGE = "message";
 
     public static final String PRODUCT_NAME = "productname" ;
+    public static final String PRICE = "price" ;
+    public static final String TOTAL_ITEMES = "total_items" ;
+    public static final String TOTAL_PRICE = "total_price" ;
     public static final String PRODUCT_DESCRIPTION = "productdescription";
     public static final String PRODUCT_IMAGE = "productimage";
     public static final String PRODUCT_BRAND = "brand";
