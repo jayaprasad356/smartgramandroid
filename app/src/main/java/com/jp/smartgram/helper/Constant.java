@@ -1,8 +1,8 @@
 package com.jp.smartgram.helper;
 
 public class Constant {
-    //public static final String MainBaseUrl = "https://smartgram.greymatterworks.in/";
-    public static final String MainBaseUrl = "http://192.168.43.38/smartgram/";
+    public static final String MainBaseUrl = "https://smartgram.greymatterworks.in/";
+    //public static final String MainBaseUrl = "http://192.168.43.38/smartgram/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String LOGIN_URL = BaseUrl + "login.php";
     public static final String SIGNUP_URL = BaseUrl + "signup.php";
