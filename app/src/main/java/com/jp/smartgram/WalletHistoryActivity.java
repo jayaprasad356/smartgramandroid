@@ -9,10 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
 
 public class WalletHistoryActivity extends AppCompatActivity {
 
     Button walletbtn;
+    RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,10 @@ public class WalletHistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_wallet_history);
 
         walletbtn = findViewById(R.id.walletbtn);
+        radioButton = findViewById(R.id.radioButton);
+
+
+
 
 
         walletbtn.setOnClickListener(new View.OnClickListener() {
@@ -33,5 +40,21 @@ public class WalletHistoryActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        // Check which RadioButton was clicked
+        switch(view.getId()) {
+            case R.id.radioButton:
+                if (checked);
+                // Do your coding
+        else
+                // Do your coding
+
+                break;
+            // Perform your logic
+        }
     }
 }

@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -32,6 +34,7 @@ public class NotificationActivity extends AppCompatActivity {
     Activity activity;
     NotificationAdapter notificationAdapter;
     Session session;
+    ImageView backimg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,14 @@ public class NotificationActivity extends AppCompatActivity {
         activity = NotificationActivity.this;
         session = new Session(activity);
         recyclerView = findViewById(R.id.recyclerView);
+        backimg = findViewById(R.id.backimg);
+
+        backimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false));
 

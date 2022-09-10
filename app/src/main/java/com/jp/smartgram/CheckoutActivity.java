@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class CheckoutActivity extends AppCompatActivity {
     RecyclerView cartRecycleView;
     Activity activity;
     Session session;
+    ImageView backimg;
     CartAdapter cartAdapter;
 
     @Override
@@ -44,6 +46,14 @@ public class CheckoutActivity extends AppCompatActivity {
         tvDeliverycharges = findViewById(R.id.tvDeliverycharges);
         tvGrandTotal = findViewById(R.id.tvGrandTotal);
         cartRecycleView = findViewById(R.id.cartRecycleView);
+        backimg = findViewById(R.id.backimg);
+
+        backimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         activity = CheckoutActivity.this;
         session = new Session(activity);

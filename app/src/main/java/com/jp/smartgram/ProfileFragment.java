@@ -21,7 +21,7 @@ public class ProfileFragment extends Fragment {
     View root;
     ImageView imgEdit;
     Activity activity;
-    TextView tvName,tvMobile,tvNotification;
+    TextView tvName,tvMobile,tvNotification,tvWallet,tvchangePass;
     Session session;
     LinearLayout logout;
 
@@ -38,6 +38,8 @@ public class ProfileFragment extends Fragment {
         tvName = root.findViewById(R.id.tvName);
         tvMobile = root.findViewById(R.id.tvMobile);
         tvNotification = root.findViewById(R.id.tvNotification);
+        tvWallet = root.findViewById(R.id.tvWallet);
+        tvchangePass = root.findViewById(R.id.tvchangePass);
         logout = root.findViewById(R.id.logout);
 
         activity = getActivity();
@@ -61,6 +63,20 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),NotificationActivity.class);
+                startActivity(intent);
+            }
+        });
+        tvWallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),WalletHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+        tvchangePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),ChangepasswordActivity.class);
                 startActivity(intent);
             }
         });
