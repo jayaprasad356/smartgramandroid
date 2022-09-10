@@ -11,12 +11,11 @@ public class Constant {
     public static final String USER_DETAILS_URL = BaseUrl + "userdetails.php";
     public static final String CATEGORY_LIST_URL = BaseUrl + "category-list.php";
     public static final String PRODUCT_LIST_URL = BaseUrl + "productlist.php";
+    public static final String NOTIFICATION_LIST_URL = BaseUrl + "notification-list.php";
     public static final String ADD_TO_CART_URL = BaseUrl + "add-cart.php";
     public static final String CART_LIST_URL = BaseUrl + "cartlist.php";
+    public static final String CHECKOUT_URL = BaseUrl + "checkout.php";
     public static final String DELETE_CART_URL = BaseUrl + "delete_cart.php";
-    public static final String NOTIFICATION_LIST = BaseUrl + "notifications.php";
-
-
     public static final String MOBILE = "mobile";
     public static final String ID = "id";
     public static final String USER_ID = "user_id";
@@ -34,6 +33,10 @@ public class Constant {
     public static final String PINCODE = "pincode";
     public static final String DISTRICT = "district";
     public static final String DATA = "data";
+    public static final String CART_ITEMS = "cart_items";
+    public static final String SUB_TOTAL = "sub_total";
+    public static final String DELIVERY_CHARGES = "delivery_charges";
+    public static final String GRAND_TOTAL = "grand_total";
     public static final String SUCCESS = "success";
     public static final String MESSAGE = "message";
 
@@ -44,5 +47,4 @@ public class Constant {
     public static final String PRODUCT_DESCRIPTION = "productdescription";
     public static final String PRODUCT_IMAGE = "productimage";
     public static final String PRODUCT_BRAND = "brand";
-
 }

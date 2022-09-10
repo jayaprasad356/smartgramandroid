@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CheckoutActivity"
     android:background="@color/gray"
-    >
+    tools:context=".CheckoutActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,45 +13,42 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
-            android:background="@color/green"
-            android:id="@+id/toolbar">
+            android:background="@color/green">
 
             <LinearLayout
+                android:id="@+id/linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/linear"
                 android:layout_margin="@dimen/_8sdp"
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/backimg"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
-                    android:id="@+id/backimg"
-                    android:src="@drawable/ic_back"
+                    android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:layout_gravity="center"/>
+                    android:src="@drawable/ic_back" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Checkout"
-                    android:textSize="@dimen/_17sdp"
                     android:textColor="@color/white"
-                    android:textStyle="normal"/>
+                    android:textSize="@dimen/_17sdp"
+                    android:textStyle="normal" />
 
             </LinearLayout>
 
         </androidx.appcompat.widget.Toolbar>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
             <LinearLayout
@@ -78,23 +74,19 @@
                         android:src="@drawable/ic_check_circle" />
 
                     <TextView
+                        android:id="@+id/tvName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_10sdp"
-                        android:drawableEnd="@drawable/ic_baseline_edit_24"
                         android:drawablePadding="@dimen/_90sdp"
                         android:text="Jayaprasad"
                         android:textSize="@dimen/_16sdp" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:src="@drawable/ic_baseline_delete_24" />
 
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tvAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_55sdp"
@@ -102,6 +94,7 @@
                     android:textSize="@dimen/_16sdp" />
 
                 <TextView
+                    android:id="@+id/tvMobile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_55sdp"
@@ -111,17 +104,18 @@
                     android:textSize="@dimen/_14sdp" />
 
             </LinearLayout>
-
-
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cartRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"/>
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_8sdp"
-                android:orientation="horizontal"
-                android:layout_alignParentBottom="true">
+                >
 
 
                 <LinearLayout
@@ -130,6 +124,50 @@
                     android:orientation="vertical">
 
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/whitebackground"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_5sdp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Payment Method"
+                            android:textColor="@color/black" />
+
+                        <com.google.android.material.divider.MaterialDivider
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_8sdp" />
+
+                        <RadioGroup
+                            android:id="@+id/radioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checkedButton="@+id/radio_button_1">
+
+                            <RadioButton
+                                android:id="@+id/radio_button_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Pay at Distributor" />
+
+                            <RadioButton
+                                android:id="@+id/radio_button_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="Upi Payment" />
+
+                        </RadioGroup>
+
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -138,58 +176,11 @@
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:background="@drawable/whitebackground"
                         android:orientation="vertical"
-                        android:padding="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        >
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Payment Method"
-                            android:textColor="@color/black"
-                            />
-
-                        <com.google.android.material.divider.MaterialDivider
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/_8sdp"
-                            android:layout_marginBottom="@dimen/_8sdp"
-                            />
-
-                        <RadioGroup
-                            android:id="@+id/radioGroup"
-                            android:checkedButton="@+id/radio_button_1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <RadioButton
-                                android:id="@+id/radio_button_1"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="Pay at Distributor"/>
-                            <RadioButton
-                                android:id="@+id/radio_button_2"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="Upi Payment"/>
-
-                        </RadioGroup>
-
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_65sdp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
-                        android:background="@drawable/whitebackground"
-                        android:orientation="vertical">
+                        android:padding="@dimen/_5sdp">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_18sdp"
                             android:layout_marginStart="@dimen/_18sdp"
                             android:layout_marginEnd="@dimen/_18sdp">
 
@@ -197,15 +188,16 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Subtotal"
-                                android:textSize="@dimen/_13sdp"/>
+                                android:textSize="@dimen/_13sdp" />
 
                             <TextView
+                                android:id="@+id/tvSubtotal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
-                                android:text="3000"
                                 android:drawableStart="@drawable/ic_grey_rupee"
-                                android:textSize="@dimen/_13sdp"/>
+                                android:text="3000"
+                                android:textSize="@dimen/_13sdp" />
 
                         </RelativeLayout>
 
@@ -219,15 +211,43 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Delivery Charge"
-                                android:textSize="@dimen/_13sdp"/>
+                                android:textSize="@dimen/_13sdp" />
+
+                            <TextView
+                                android:id="@+id/tvDeliverycharges"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:text="Free"
+                                android:textSize="@dimen/_13sdp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:text="Grand Total"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp" />
+
+                            <TextView
+                                android:id="@+id/tvGrandTotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
-                                android:text="Free"
-                                android:textSize="@dimen/_13sdp"
-                                android:layout_marginEnd="@dimen/_8sdp"/>
+                                android:layout_marginEnd="@dimen/_8sdp"
+
+                                android:drawableStart="@drawable/ic_grey_rupee"
+                                android:text="23000"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp" />
 
                         </RelativeLayout>
 
@@ -237,13 +257,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_20sdp"
+                        android:padding="@dimen/_10sdp"
                         android:text="Proceed"
                         android:textAllCaps="false"
                         app:cornerRadius="@dimen/_6sdp"
-                        android:padding="@dimen/_10sdp"
 
                         />
-
 
 
                 </LinearLayout>
@@ -251,7 +270,7 @@
 
             </RelativeLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

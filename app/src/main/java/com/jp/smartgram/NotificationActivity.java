@@ -82,7 +82,7 @@ public class NotificationActivity extends AppCompatActivity {
                     Toast.makeText(activity, String.valueOf(e), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, activity, Constant.NOTIFICATION_LIST, params, true);
+        }, activity, Constant.NOTIFICATION_LIST_URL, params, true);
 
 
 
