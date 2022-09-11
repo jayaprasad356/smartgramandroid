@@ -23,18 +23,18 @@ import java.util.ArrayList;
 
 public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    final OrdersActivity ordersActivity;
+    final Activity activity;
     ArrayList<Order> orders;
 
-    public OrderAdapter(OrdersActivity ordersActivity, ArrayList<Order> orders) {
-        this.ordersActivity = ordersActivity;
+    public OrderAdapter(Activity activity, ArrayList<Order> orders) {
+        this.activity = activity;
         this.orders = orders;
     }
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(ordersActivity).inflate(R.layout.order_item, parent, false);
+        View view = LayoutInflater.from(activity).inflate(R.layout.order_item, parent, false);
         return new ExploreItemHolder(view);
     }
 
@@ -44,12 +44,12 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Order order = orders.get(position);
 
-        holder.tvorder.setText(order.getName1());
-        holder.tvitem.setText(order.getName2());
-        holder.tvpaddy.setText(order.getName3());
-        holder.tvplace.setText(order.getName4());
-        holder.tvno.setText(order.getName5());
-        holder.tvprocessed.setText(order.getName6());
+        holder.tvId.setText("Order No. "+order.getId());
+        holder.tvQuantity.setText(order.getQuantity()+" items");
+        holder.tvProductname.setText(order.getProduct_name());
+        holder.tvTotal.setText(order.getTotal());
+        holder.tvOrderdate.setText("Order placed on "+order.getOrder_date());
+        holder.tvStatus.setText(order.getStatus());
 
     }
 
@@ -60,21 +60,17 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
 
-        final TextView tvorder;
-        final TextView tvitem;
-        final TextView tvpaddy;
-        final TextView tvplace;
-        final TextView tvno;
-        final TextView tvprocessed;
+        final TextView tvId,tvQuantity,tvProductname,tvOrderdate;
+        final TextView tvTotal,tvStatus;
 
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
-            tvorder = itemView.findViewById(R.id.tvorder);
-            tvitem = itemView.findViewById(R.id.tvitem);
-            tvpaddy = itemView.findViewById(R.id.tvpaddy);
-            tvplace = itemView.findViewById(R.id.tvplace);
-            tvno = itemView.findViewById(R.id.tvno);
-            tvprocessed = itemView.findViewById(R.id.tvprocessed);
+            tvId = itemView.findViewById(R.id.tvId);
+            tvQuantity = itemView.findViewById(R.id.tvQuantity);
+            tvProductname = itemView.findViewById(R.id.tvProductname);
+            tvTotal = itemView.findViewById(R.id.tvTotal);
+            tvOrderdate = itemView.findViewById(R.id.tvOrderdate);
+            tvStatus = itemView.findViewById(R.id.tvStatus);
 
         }
     }

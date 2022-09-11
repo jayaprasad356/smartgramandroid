@@ -33,57 +33,24 @@
             >
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etAmmount"
+            android:id="@+id/etAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-
+            android:maxLength="5"
             />
 
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:hint="Massage(Optional)"
-            app:boxStrokeWidth="0dp"
-            >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etmessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Upi Payment"
-            android:padding="@dimen/_10sdp"
-            android:onClick="onRadioButtonClicked"
-            android:layout_margin="@dimen/_10sdp"/>
-
-
-
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:weightSum="2"
             android:padding="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_50sdp"
             >
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cancel"
@@ -96,6 +63,7 @@
                 />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRecharge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Recharge"

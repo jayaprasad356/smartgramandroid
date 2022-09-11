@@ -102,7 +102,7 @@ public class CartActivity extends AppCompatActivity {
                                 break;
                             }
                         }
-                        cartAdapter = new CartAdapter(activity, carts);
+                        cartAdapter = new CartAdapter(activity, carts,"cart");
                         cartRecycleView.setAdapter(cartAdapter);
 
                     } else {

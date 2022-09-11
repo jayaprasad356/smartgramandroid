@@ -3,6 +3,7 @@ package com.jp.smartgram;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -13,6 +14,16 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.jp.smartgram.helper.ApiConfig;
+import com.jp.smartgram.helper.Constant;
+import com.jp.smartgram.helper.Session;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -21,11 +32,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     DoctorFragment doctorFragment = new DoctorFragment();
     FintechFragment fintechFragment = new FintechFragment();
     ProfileFragment profileFragment = new ProfileFragment();
+    Session session;
+    Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        activity = MainActivity.this;
+        session = new Session(activity);
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -57,4 +72,30 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         return false;
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        userDetails();
+    }
+
+    private void userDetails()
+    {
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.USER_ID,session.getData(Constant.ID));
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
+                        session.setData(Constant.BALANCE,jsonArray.getJSONObject(0).getString(Constant.BALANCE));
+                    }
+
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.USER_DETAILS_URL, params,true);
+
+    }
 }

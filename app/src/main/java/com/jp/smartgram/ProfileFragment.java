@@ -23,7 +23,7 @@ public class ProfileFragment extends Fragment {
     Activity activity;
     TextView tvName,tvMobile,tvNotification,tvWallet,tvchangePass;
     Session session;
-    LinearLayout logout;
+    LinearLayout logout,lOrder;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -41,6 +41,7 @@ public class ProfileFragment extends Fragment {
         tvWallet = root.findViewById(R.id.tvWallet);
         tvchangePass = root.findViewById(R.id.tvchangePass);
         logout = root.findViewById(R.id.logout);
+        lOrder = root.findViewById(R.id.lOrder);
 
         activity = getActivity();
         session = new Session(activity);
@@ -78,6 +79,14 @@ public class ProfileFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),ChangepasswordActivity.class);
                 startActivity(intent);
+            }
+        });
+        lOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),OrdersActivity.class);
+                startActivity(intent);
+
             }
         });
 

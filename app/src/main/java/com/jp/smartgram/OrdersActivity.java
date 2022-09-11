@@ -4,53 +4,100 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.jp.smartgram.adapter.CartAdapter;
 import com.jp.smartgram.adapter.CategoryAdapter;
 import com.jp.smartgram.adapter.OrderAdapter;
 import com.jp.smartgram.adapter.ProductAdapter;
+import com.jp.smartgram.helper.ApiConfig;
+import com.jp.smartgram.helper.Constant;
+import com.jp.smartgram.helper.Session;
+import com.jp.smartgram.model.Cart;
 import com.jp.smartgram.model.Order;
 import com.jp.smartgram.model.Product;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OrdersActivity extends AppCompatActivity {
 
-    TextView tvorder,tvitem,tvpaddy,tvplace,tvno,tvprocessed;
     RecyclerView orderRecycleView;
     OrderAdapter orderAdapter;
+    Activity activity;
+    Session session;
+    ImageView backimg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
-
-        tvorder = findViewById(R.id.tvorder);
-        tvitem = findViewById(R.id.tvitem);
-        tvpaddy = findViewById(R.id.tvpaddy);
-        tvplace = findViewById(R.id.tvplace);
-        tvno = findViewById(R.id.tvno);
-        tvprocessed = findViewById(R.id.tvprocessed);
+        activity = OrdersActivity.this;
+        session = new Session(activity);
         orderRecycleView = findViewById(R.id.orderRecycleView);
+        backimg = findViewById(R.id.backimg);
 
         orderRecycleView.setLayoutManager(new LinearLayoutManager(OrdersActivity.this, LinearLayoutManager.VERTICAL, false));
 
+        backimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         orderList();
 
     }
 
     private void orderList() {
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.USER_ID,session.getData(Constant.ID));
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        JSONObject object = new JSONObject(response);
+                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<Order> orders = new ArrayList<>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                Order group = g.fromJson(jsonObject1.toString(), Order.class);
+                                orders.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        orderAdapter = new OrderAdapter(activity, orders);
+                        orderRecycleView.setAdapter(orderAdapter);
 
-        ArrayList<Order> orders = new ArrayList<>();
-        Order ord1 = new Order("1","Order No. 01","3 item","Paddy","Order placed on 28-07-2022","1500.00","Processed");
-        Order ord2 = new Order("2","Order No. 02","2 item","Urea","Order placed on 29-07-2022","1200.00","Processed");
-        Order ord3 = new Order("3","Order No. 03","5 item","Npk","Order placed on 31-07-2022","1800.00","Processed");
-        orders.add(ord1);
-        orders.add(ord2);
-        orders.add(ord3);
-        orderAdapter = new OrderAdapter(OrdersActivity.this, orders);
-        orderRecycleView.setAdapter(orderAdapter);
+                    } else {
+                        Toast.makeText(activity, "" + String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.ORDER_LIST_URL, params, true);
+
+
+
+
+
     }
 }

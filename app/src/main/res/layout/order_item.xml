@@ -13,7 +13,7 @@
         android:background="@drawable/whitebackground">
 
         <TextView
-            android:id="@+id/tvorder"
+            android:id="@+id/tvId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Order No. 18"
@@ -23,7 +23,7 @@
             android:textColor="@color/black"/>
 
         <TextView
-            android:id="@+id/tvitem"
+            android:id="@+id/tvQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -32,7 +32,7 @@
             android:textSize="@dimen/_13sdp"/>
 
         <TextView
-            android:id="@+id/tvpaddy"
+            android:id="@+id/tvProductname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -50,7 +50,7 @@
             android:layout_marginBottom="@dimen/_5sdp"/>
 
         <TextView
-            android:id="@+id/tvplace"
+            android:id="@+id/tvOrderdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -79,7 +79,7 @@
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/tvno"
+                    android:id="@+id/tvTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1500.00"
@@ -90,14 +90,16 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/tvprocessed"
+                android:id="@+id/tvStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Processed"
                 android:layout_alignParentRight="true"
-                android:textColor="@color/green"
-                android:layout_margin="@dimen/_10sdp"
-                android:layout_gravity="end"/>
+                android:layout_gravity="end"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:textColor="@color/green" />
 
         </RelativeLayout>
 

@@ -2,7 +2,6 @@ package com.jp.smartgram.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.jp.smartgram.CartActivity;
-import com.jp.smartgram.ProductActivity;
 import com.jp.smartgram.R;
 import com.jp.smartgram.helper.ApiConfig;
 import com.jp.smartgram.helper.Constant;
 import com.jp.smartgram.model.Cart;
-import com.jp.smartgram.model.Product;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,9 +31,11 @@ public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     final Activity activity;
     ArrayList<Cart> carts;
 
-    public CartAdapter(Activity activity, ArrayList<Cart> carts) {
+    String type;
+    public CartAdapter(Activity activity, ArrayList<Cart> carts, String type) {
         this.activity = activity;
         this.carts = carts;
+        this.type = type;
     }
     @NonNull
     @Override
@@ -55,6 +54,10 @@ public class CartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.tvName.setText(cart.getProduct_name());
         holder.tvPrice.setText("₹ "+cart.getPrice());
         holder.tvQuantity.setText("("+cart.getQuantity()+")");
+        if (type.equals("checkout")){
+            holder.tvDelete.setVisibility(View.INVISIBLE);
+
+        }
         holder.tvDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
