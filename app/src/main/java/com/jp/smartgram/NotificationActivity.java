@@ -63,7 +63,6 @@ public class NotificationActivity extends AppCompatActivity {
 
         Map<String, String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {
-            Log.d("NOTIFY_RES", response);
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);

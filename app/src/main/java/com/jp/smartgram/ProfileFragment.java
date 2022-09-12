@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.jp.smartgram.activities.ContactUsActivity;
 import com.jp.smartgram.helper.Constant;
 import com.jp.smartgram.helper.Session;
 
@@ -23,7 +24,7 @@ public class ProfileFragment extends Fragment {
     Activity activity;
     TextView tvName,tvMobile,tvNotification,tvWallet,tvchangePass;
     Session session;
-    LinearLayout logout,lOrder;
+    LinearLayout logout,contactus,lOrder;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -42,6 +43,7 @@ public class ProfileFragment extends Fragment {
         tvchangePass = root.findViewById(R.id.tvchangePass);
         logout = root.findViewById(R.id.logout);
         lOrder = root.findViewById(R.id.lOrder);
+        contactus = root.findViewById(R.id.contactus);
 
         activity = getActivity();
         session = new Session(activity);
@@ -88,6 +90,11 @@ public class ProfileFragment extends Fragment {
                 startActivity(intent);
 
             }
+        });
+        contactus.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(), ContactUsActivity.class);
+            startActivity(intent);
+
         });
 
         return root;

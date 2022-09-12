@@ -1,5 +1,6 @@
 package com.jp.smartgram;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,15 +11,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.jp.smartgram.activities.SearchActivity;
 import com.jp.smartgram.adapter.CategoryAdapter;
 import com.jp.smartgram.adapter.SliderAdapterExample;
 import com.jp.smartgram.helper.ApiConfig;
@@ -52,11 +59,13 @@ public class HomeFragment extends Fragment {
     private SliderAdapterExample adapter;
     TextView tvTitle;
     ImageView imgCart;
+    EditText searchView;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -68,6 +77,7 @@ public class HomeFragment extends Fragment {
         view_txt = root.findViewById(R.id.view_all);
         tvTitle = root.findViewById(R.id.tvTitle);
         imgCart = root.findViewById(R.id.imgCart);
+        searchView = root.findViewById(R.id.searchView);
         categoryRecycleView = root.findViewById(R.id.categoryRecycleView);
         sliderView = root.findViewById(R.id.image_slider);
         tvTitle.setText("Hi, "+session.getData(Constant.NAME));
@@ -80,6 +90,15 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        searchView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                Intent intent = new Intent(activity, SearchActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        });
+
         slideslist();
         sliderView.setSliderAdapter(adapter);
         sliderView.setIndicatorAnimation(IndicatorAnimationType.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!

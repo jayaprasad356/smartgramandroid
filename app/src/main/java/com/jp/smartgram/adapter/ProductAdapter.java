@@ -1,5 +1,6 @@
 package com.jp.smartgram.adapter;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,17 +22,17 @@ import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    final ProductActivity productActivity;
+    final Activity activity;
     ArrayList<Product> products;
 
-    public ProductAdapter(ProductActivity productActivity, ArrayList<Product> products) {
-        this.productActivity = productActivity;
+    public ProductAdapter(Activity activity, ArrayList<Product> products) {
+        this.activity = activity;
         this.products = products;
     }
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(productActivity).inflate(R.layout.product_item, parent, false);
+        View view = LayoutInflater.from(activity).inflate(R.layout.product_item, parent, false);
 
         return new ExploreItemHolder(view);
     }
@@ -42,7 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Product product = products.get(position);
 
-        Glide.with(productActivity).load(product.getImage()).placeholder(R.drawable.logo).into(holder.imgProduct);
+        Glide.with(activity).load(product.getImage()).placeholder(R.drawable.logo).into(holder.imgProduct);
         holder.tvName.setText(product.getProduct_name());
         holder.tvPrice.setText("₹ "+product.getPrice());
 
@@ -50,14 +51,14 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(productActivity, ProductDetailsActivity.class);
+                Intent intent = new Intent(activity, ProductDetailsActivity.class);
                 intent.putExtra(Constant.ID,product.getId());
                 intent.putExtra(Constant.PRODUCT_NAME,product.getProduct_name());
                 intent.putExtra(Constant.PRICE,product.getPrice());
                 intent.putExtra(Constant.PRODUCT_DESCRIPTION,product.getDescription());
                 intent.putExtra(Constant.PRODUCT_IMAGE,product.getImage());
                 intent.putExtra(Constant.PRODUCT_BRAND,product.getBrand());
-                productActivity.startActivity(intent);
+                activity.startActivity(intent);
 
             }
         });

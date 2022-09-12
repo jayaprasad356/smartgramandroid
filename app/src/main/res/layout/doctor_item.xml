@@ -31,7 +31,7 @@
                     <ImageView
                         android:layout_width="@dimen/_70sdp"
                         android:layout_height="@dimen/_70sdp"
-                        android:id="@+id/imglist"
+                        android:id="@+id/imgDoctor"
                         android:layout_marginBottom="@dimen/_25sdp"
                         android:layout_marginTop="@dimen/_25sdp"
                         android:layout_gravity="center" />
@@ -47,6 +47,7 @@
                     android:textColor="@color/grey"/>
 
                 <TextView
+                    android:id="@+id/tvFees"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="500"
@@ -78,12 +79,14 @@
                         android:textColor="@color/black"/>
 
                     <TextView
+                        android:id="@+id/tvRole"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="General Practioner"
                         android:textSize="@dimen/_15sdp"/>
 
                     <TextView
+                        android:id="@+id/tvExperience"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3 years"
@@ -93,7 +96,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/btnmake"
+                    android:id="@+id/btnAppointment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/primary"

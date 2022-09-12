@@ -5,26 +5,42 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.jp.smartgram.adapter.CartAdapter;
 import com.jp.smartgram.adapter.CategoryAdapter;
 import com.jp.smartgram.adapter.DoctorListAdapter;
+import com.jp.smartgram.helper.ApiConfig;
+import com.jp.smartgram.helper.Constant;
+import com.jp.smartgram.helper.Session;
+import com.jp.smartgram.model.Cart;
 import com.jp.smartgram.model.Category;
+import com.jp.smartgram.model.Doctor;
 import com.jp.smartgram.model.Item;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DoctorListActivity extends AppCompatActivity {
 
-    TextView tvName;
-    Button btnmake;
-    ImageView imglist;
+
     RecyclerView listRecycleView;
     DoctorListAdapter doctorListAdapter;
     Activity activity;
+    String Name,Mobile,Age,Disease,Place,Description,History;
+    Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,25 +48,90 @@ public class DoctorListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_list);
 
         activity = DoctorListActivity.this;
+        session = new Session(activity);
         listRecycleView= findViewById(R.id.listRecycleView);
-        tvName= findViewById(R.id.tvName);
-        btnmake= findViewById(R.id.btnmake);
-        imglist= findViewById(R.id.imglist);
+        Name = getIntent().getStringExtra(Constant.NAME);
+        Mobile = getIntent().getStringExtra(Constant.MOBILE);
+        Age = getIntent().getStringExtra(Constant.AGE);
+        Disease = getIntent().getStringExtra(Constant.DISEASE);
+        Place = getIntent().getStringExtra(Constant.PLACE);
+        Description = getIntent().getStringExtra(Constant.DESCRIPTION);
+        History = getIntent().getStringExtra(Constant.HISTORY);
 
         listRecycleView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
 
         doctorList();
     }
+    public void bookAppointment(String doctor_id)
+    {
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.USER_ID, session.getData(Constant.ID));
+        params.put(Constant.DOCTOR_ID, doctor_id);
+        params.put(Constant.NAME, Name);
+        params.put(Constant.MOBILE, Mobile);
+        params.put(Constant.AGE, Age);
+        params.put(Constant.DISEASE, Disease);
+        params.put(Constant.PLACE, Place);
+        params.put(Constant.DESCRIPTION, Description);
+        params.put(Constant.HISTORY, History);
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS))
+                    {
+                        Toast.makeText(activity, "" + String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(activity,MainActivity.class);
+                        startActivity(intent);
+
+                    } else {
+                        Toast.makeText(activity, "" + String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.ADD_APPOINTMENT_URL, params, true);
+
+    }
 
     private void doctorList() {
-        ArrayList<Item> item = new ArrayList<>();
-        Item item1 = new Item("1","Darrell Steward","https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/23/w1200X800/Farmers-.jpg","Make an Appointment");
-        Item item2 = new Item("2","Aravind","https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/23/w1200X800/Farmers-.jpg","Make an Appointment");
-        Item item3 = new Item("3","JP Bro","https://images.newindianexpress.com/uploads/user/imagelibrary/2022/3/23/w1200X800/Farmers-.jpg","Make an Appointment");
-        item.add(item1);
-        item.add(item2);
-        item.add(item3);
-        doctorListAdapter = new DoctorListAdapter(DoctorListActivity.this, item);
-        listRecycleView.setAdapter(doctorListAdapter);
+        Map<String, String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        JSONObject object = new JSONObject(response);
+                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<Doctor> doctors = new ArrayList<>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                Doctor group = g.fromJson(jsonObject1.toString(), Doctor.class);
+                                doctors.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        doctorListAdapter = new DoctorListAdapter(activity, doctors);
+                        listRecycleView.setAdapter(doctorListAdapter);
+
+                    } else {
+                        Toast.makeText(activity, "" + String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.DOCTOR_LIST_URL, params, true);
+
+
+
+
+
     }
 }

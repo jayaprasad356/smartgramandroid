@@ -17,8 +17,7 @@ import com.jp.smartgram.ProductActivity;
 import com.jp.smartgram.R;
 import com.jp.smartgram.helper.Constant;
 import com.jp.smartgram.model.Category;
-import com.jp.smartgram.model.Item;
-import com.jp.smartgram.model.Product;
+
 
 import java.util.ArrayList;
 

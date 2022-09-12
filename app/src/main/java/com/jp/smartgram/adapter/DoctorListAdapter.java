@@ -12,26 +12,27 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.jp.smartgram.CartActivity;
 import com.jp.smartgram.DoctorListActivity;
 import com.jp.smartgram.R;
-import com.jp.smartgram.model.Category;
+import com.jp.smartgram.model.Doctor;
 import com.jp.smartgram.model.Item;
 
 import java.util.ArrayList;
 
 public class DoctorListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    final DoctorListActivity doctorListActivity;
-    ArrayList<Item> items;
+    final Activity activity;
+    ArrayList<Doctor> doctors;
 
-    public DoctorListAdapter(DoctorListActivity doctorListActivity, ArrayList<Item> items) {
-        this.doctorListActivity = doctorListActivity;
-        this.items = items;
+    public DoctorListAdapter(Activity activity, ArrayList<Doctor> doctors) {
+        this.activity = activity;
+        this.doctors = doctors;
     }
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(doctorListActivity).inflate(R.layout.list_item, parent, false);
+        View view = LayoutInflater.from(activity).inflate(R.layout.doctor_item, parent, false);
         return new ExploreItemHolder(view);
     }
 
@@ -39,31 +40,39 @@ public class DoctorListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
-        final Item item = items.get(position);
+        final Doctor doctor = doctors.get(position);
 
-        Glide.with(doctorListActivity).load(item.getImage()).placeholder(R.drawable.logo).into(holder.imglist);
-        holder.tvName.setText(item.getName());
-
-
+        Glide.with(activity).load(doctor.getImage()).placeholder(R.drawable.logo).into(holder.imgDoctor);
+        holder.tvName.setText(doctor.getName());
+        holder.tvRole.setText(doctor.getRole());
+        holder.tvExperience.setText(doctor.getExperience());
+        holder.tvFees.setText(doctor.getFees());
+        holder.btnAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((DoctorListActivity)activity).bookAppointment(doctor.getId());
+            }
+        });
     }
 
     @Override
     public int getItemCount()
     {
-        return items.size();
+        return doctors.size();
     }
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
-
-        final ImageView imglist;
-        final TextView tvName;
-        final Button btnmake;
+        final ImageView imgDoctor;
+        final TextView tvName,tvRole,tvExperience,tvFees;
+        final Button btnAppointment;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
-            imglist = itemView.findViewById(R.id.imglist);
             tvName = itemView.findViewById(R.id.tvName);
-            btnmake = itemView.findViewById(R.id.btnmake);
-
+            tvRole = itemView.findViewById(R.id.tvRole);
+            tvExperience = itemView.findViewById(R.id.tvExperience);
+            tvFees = itemView.findViewById(R.id.tvFees);
+            imgDoctor = itemView.findViewById(R.id.imgDoctor);
+            btnAppointment = itemView.findViewById(R.id.btnAppointment);
         }
     }
 }
