@@ -1,24 +1,42 @@
 package com.jp.smartgram;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.jp.smartgram.adapter.DoctorListAdapter;
+import com.jp.smartgram.helper.ApiConfig;
 import com.jp.smartgram.helper.Constant;
+import com.jp.smartgram.helper.Session;
+import com.jp.smartgram.model.Doctor;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class DoctorFragment extends Fragment {
 
     View root;
-    EditText etName, etMobile, etAge, etDiseases, etPlace, etDescription, etHistory;
-    Button btnBookappointment;
+    RecyclerView listRecycleView;
+    DoctorListAdapter doctorListAdapter;
+    Activity activity;
 
     public DoctorFragment() {
         // Required empty public constructor
@@ -31,66 +49,49 @@ public class DoctorFragment extends Fragment {
         // Inflate the layout for this fragment
         root = inflater.inflate(R.layout.fragment_doctor, container, false);
 
-        btnBookappointment = root.findViewById(R.id.btnBookappointment);
-        etName = root.findViewById(R.id.etName);
-        etMobile = root.findViewById(R.id.etMobile);
-        etAge = root.findViewById(R.id.etAge);
-        etDiseases = root.findViewById(R.id.etDiseases);
-        etPlace = root.findViewById(R.id.etPlace);
-        etDescription = root.findViewById(R.id.etDescription);
-        etHistory = root.findViewById(R.id.etHistory);
+        activity = getActivity();
+        listRecycleView= root.findViewById(R.id.listRecycleView);
+        listRecycleView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
 
-        btnBookappointment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (etName.getText().toString().trim().equals("")) {
-                    etName.setError("empty");
-                    etName.requestFocus();
-
-
-                } else if (etMobile.getText().toString().trim().equals("")) {
-                    etMobile.setError("empty");
-                    etMobile.requestFocus();
-
-                } else if (etMobile.getText().length() != 10) {
-                    etMobile.setError("Invaid");
-                    etMobile.requestFocus();
-                } else if (etAge.getText().toString().trim().equals("")) {
-                    etAge.setError("empty");
-                    etAge.requestFocus();
-
-                } else if (etDiseases.getText().toString().trim().equals("")) {
-                    etDiseases.setError("empty");
-                    etDiseases.requestFocus();
-
-                } else if (etPlace.getText().toString().trim().equals("")) {
-                    etPlace.setError("empty");
-                    etPlace.requestFocus();
-
-                } else if (etDescription.getText().toString().trim().equals("")) {
-                    etDescription.setError("empty");
-                    etDescription.requestFocus();
-
-                } else if (etHistory.getText().toString().trim().equals("")) {
-                    etHistory.setError("empty");
-                    etHistory.requestFocus();
-
-                } else {
-                    Intent intent = new Intent(getActivity(), DoctorListActivity.class);
-                    intent.putExtra(Constant.NAME,etName.getText().toString().trim());
-                    intent.putExtra(Constant.MOBILE,etMobile.getText().toString().trim());
-                    intent.putExtra(Constant.AGE,etAge.getText().toString().trim());
-                    intent.putExtra(Constant.DISEASE,etDiseases.getText().toString().trim());
-                    intent.putExtra(Constant.PLACE,etPlace.getText().toString().trim());
-                    intent.putExtra(Constant.DESCRIPTION,etDescription.getText().toString().trim());
-                    intent.putExtra(Constant.HISTORY,etHistory.getText().toString().trim());
-                    startActivity(intent);
-
-                }
-
-            }
-        });
-
+        doctorList();
         return root;
+    }
+    private void doctorList() {
+        Map<String, String> params = new HashMap<>();
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        JSONObject object = new JSONObject(response);
+                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
+                        Gson g = new Gson();
+                        ArrayList<Doctor> doctors = new ArrayList<>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                            if (jsonObject1 != null) {
+                                Doctor group = g.fromJson(jsonObject1.toString(), Doctor.class);
+                                doctors.add(group);
+                            } else {
+                                break;
+                            }
+                        }
+                        doctorListAdapter = new DoctorListAdapter(activity, doctors);
+                        listRecycleView.setAdapter(doctorListAdapter);
+
+                    } else {
+                        Toast.makeText(activity, "" + String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.DOCTOR_LIST_URL, params, true);
+
+
+
+
+
     }
 }

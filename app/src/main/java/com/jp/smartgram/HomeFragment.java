@@ -26,11 +26,13 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.jp.smartgram.activities.SearchActivity;
+import com.jp.smartgram.adapter.CartAdapter;
 import com.jp.smartgram.adapter.CategoryAdapter;
 import com.jp.smartgram.adapter.SliderAdapterExample;
 import com.jp.smartgram.helper.ApiConfig;
 import com.jp.smartgram.helper.Constant;
 import com.jp.smartgram.helper.Session;
+import com.jp.smartgram.model.Cart;
 import com.jp.smartgram.model.Category;
 import com.jp.smartgram.model.Slide;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
@@ -57,7 +59,7 @@ public class HomeFragment extends Fragment {
     CategoryAdapter categoryAdapter;
     Session session;
     private SliderAdapterExample adapter;
-    TextView tvTitle;
+    TextView tvTitle,tvCartCount;
     ImageView imgCart;
     EditText searchView;
 
@@ -78,6 +80,7 @@ public class HomeFragment extends Fragment {
         tvTitle = root.findViewById(R.id.tvTitle);
         imgCart = root.findViewById(R.id.imgCart);
         searchView = root.findViewById(R.id.searchView);
+        tvCartCount = root.findViewById(R.id.tvCartCount);
         categoryRecycleView = root.findViewById(R.id.categoryRecycleView);
         sliderView = root.findViewById(R.id.image_slider);
         tvTitle.setText("Hi, "+session.getData(Constant.NAME));
@@ -124,12 +127,37 @@ public class HomeFragment extends Fragment {
         });
 
         categoryList();
+        cartList();
 
 
 
         return root;
     }
+    public void cartList() {
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.USER_ID,session.getData(Constant.ID));
+        ApiConfig.RequestToVolley((result, response) -> {
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        JSONObject object = new JSONObject(response);
+                        JSONArray jsonArray = object.getJSONArray(Constant.DATA);
+                        tvCartCount.setText(""+jsonArray.length());
+                        tvCartCount.setVisibility(View.VISIBLE);
 
+                    } else {
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.CART_LIST_URL, params, true);
+
+
+    }
     private void categoryList() {
         Map<String, String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {

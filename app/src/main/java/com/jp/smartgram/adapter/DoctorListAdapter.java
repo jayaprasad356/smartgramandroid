@@ -1,6 +1,7 @@
 package com.jp.smartgram.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.bumptech.glide.Glide;
 import com.jp.smartgram.CartActivity;
 import com.jp.smartgram.DoctorListActivity;
 import com.jp.smartgram.R;
+import com.jp.smartgram.activities.AppointmentActivity;
+import com.jp.smartgram.helper.Constant;
 import com.jp.smartgram.model.Doctor;
 import com.jp.smartgram.model.Item;
 
@@ -50,7 +53,10 @@ public class DoctorListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         holder.btnAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((DoctorListActivity)activity).bookAppointment(doctor.getId());
+                Intent intent = new Intent(activity, AppointmentActivity.class);
+                intent.putExtra(Constant.DOCTOR_ID,doctor.getId());
+                activity.startActivity(intent);
+                //((DoctorListActivity)activity).bookAppointment(doctor.getId());
             }
         });
     }
