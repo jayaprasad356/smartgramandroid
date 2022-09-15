@@ -25,16 +25,23 @@ import com.jp.smartgram.helper.Constant;
 import com.jp.smartgram.helper.Session;
 import com.jp.smartgram.model.Cart;
 import com.jp.smartgram.model.Wallet;
+import com.shreyaspatil.EasyUpiPayment.EasyUpiPayment;
+import com.shreyaspatil.EasyUpiPayment.listener.PaymentStatusListener;
+import com.shreyaspatil.EasyUpiPayment.model.TransactionDetails;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
-public class WalletHistoryActivity extends AppCompatActivity {
+public class WalletHistoryActivity extends AppCompatActivity implements PaymentStatusListener {
 
     Button walletbtn;
     TextView tvBalance;
@@ -43,6 +50,8 @@ public class WalletHistoryActivity extends AppCompatActivity {
     ImageView backimg;
     RecyclerView recyclerView;
     WalletAdapter walletAdapter;
+    AlertDialog alertDialog;
+    String Amount = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,41 +78,79 @@ public class WalletHistoryActivity extends AppCompatActivity {
 
 
 
-        walletbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(WalletHistoryActivity.this);
-                ViewGroup viewGroup = findViewById(android.R.id.content);
-                View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.wallet_layout, viewGroup, false);
-                EditText etAmount = dialogView.findViewById(R.id.etAmount);
-                Button btnRecharge = dialogView.findViewById(R.id.btnRecharge);
-                Button btnCancel = dialogView.findViewById(R.id.btnCancel);
-                builder.setView(dialogView);
-                AlertDialog alertDialog = builder.create();
+        walletbtn.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(WalletHistoryActivity.this);
+            ViewGroup viewGroup = findViewById(android.R.id.content);
+            View dialogView = LayoutInflater.from(v.getContext()).inflate(R.layout.wallet_layout, viewGroup, false);
+            EditText etAmount = dialogView.findViewById(R.id.etAmount);
+            Button btnRecharge = dialogView.findViewById(R.id.btnRecharge);
+            Button btnCancel = dialogView.findViewById(R.id.btnCancel);
+            builder.setView(dialogView);
+            alertDialog = builder.create();
 
-                btnRecharge.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (!etAmount.getText().toString().trim().equals("")){
-                            rechargeWallet(alertDialog,etAmount.getText().toString().trim());
+            btnRecharge.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (!etAmount.getText().toString().trim().equals("")){
+                        Amount = etAmount.getText().toString().trim();
+                        try {
+                            Date c = Calendar.getInstance().getTime();
+                            SimpleDateFormat df = new SimpleDateFormat("ddMMyyyyHHmmss", Locale.getDefault());
+                            String transcId = df.format(c);
+                            makePayment(""+Double.parseDouble(Amount), Constant.UPI_ID_VAL, session.getData(Constant.NAME), "Amount", transcId);
+
+
+                        }catch (Exception e){
+                            Log.d("PAYMENT_GATEWAY",e.getMessage());
+
                         }
-
-
                     }
-                });
-                btnCancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        alertDialog.dismiss();
-                    }
-                });
 
 
-                alertDialog.show();
-            }
+                }
+            });
+            btnCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    alertDialog.dismiss();
+                }
+            });
+
+
+            alertDialog.show();
         });
         walletList();
     }
+
+    private void makePayment(String amount, String upi, String name, String desc, String transactionId) {
+        // on below line we are calling an easy payment method and passing
+        // all parameters to it such as upi id,name, description and others.
+        final EasyUpiPayment easyUpiPayment = new EasyUpiPayment.Builder()
+                .with(this)
+                // on below line we are adding upi id.
+                .setPayeeVpa(upi)
+                // on below line we are setting name to which we are making oayment.
+                .setPayeeName(name)
+                // on below line we are passing transaction id.
+                .setTransactionId(transactionId)
+                // on below line we are passing transaction ref id.
+                .setTransactionRefId(transactionId)
+                // on below line we are adding description to payment.
+                .setDescription(desc)
+                // on below line we are passing amount which is being paid.
+                .setAmount(amount)
+                // on below line we are calling a build method to build this ui.
+                .build();
+        // on below line we are calling a start
+        // payment method to start a payment.
+        easyUpiPayment.startPayment();
+
+        // on below line we are calling a set payment
+        // status listener method to call other payment methods.
+        easyUpiPayment.setPaymentStatusListener(this);
+    }
+
+
 
     private void walletList()
     {
@@ -142,12 +189,13 @@ public class WalletHistoryActivity extends AppCompatActivity {
 
     }
 
-    private void rechargeWallet(AlertDialog alertDialog, String amt)
+
+    private void rechargeWallet()
     {
         Map<String, String> params = new HashMap<>();
         params.put(Constant.USER_ID,session.getData(Constant.ID));
         params.put(Constant.TYPE,"credit");
-        params.put(Constant.AMOUNT,amt);
+        params.put(Constant.AMOUNT,Amount);
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {
@@ -170,4 +218,34 @@ public class WalletHistoryActivity extends AppCompatActivity {
         }, activity, Constant.WALLET_URL, params,true);
     }
 
+    @Override
+    public void onTransactionCompleted(TransactionDetails transactionDetails) {
+
+    }
+
+    @Override
+    public void onTransactionSuccess() {
+        rechargeWallet();
+
+    }
+
+    @Override
+    public void onTransactionSubmitted() {
+
+    }
+
+    @Override
+    public void onTransactionFailed() {
+
+    }
+
+    @Override
+    public void onTransactionCancelled() {
+
+    }
+
+    @Override
+    public void onAppNotFound() {
+
+    }
 }

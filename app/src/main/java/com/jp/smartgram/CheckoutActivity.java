@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,16 +21,23 @@ import com.jp.smartgram.helper.ApiConfig;
 import com.jp.smartgram.helper.Constant;
 import com.jp.smartgram.helper.Session;
 import com.jp.smartgram.model.Cart;
+import com.shreyaspatil.EasyUpiPayment.EasyUpiPayment;
+import com.shreyaspatil.EasyUpiPayment.listener.PaymentStatusListener;
+import com.shreyaspatil.EasyUpiPayment.model.TransactionDetails;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
-public class CheckoutActivity extends AppCompatActivity {
+public class CheckoutActivity extends AppCompatActivity implements PaymentStatusListener {
     TextView tvName, tvAddress, tvMobile, tvSubtotal, tvDeliverycharges, tvGrandTotal;
     RecyclerView cartRecycleView;
     Activity activity;
@@ -81,36 +89,82 @@ public class CheckoutActivity extends AppCompatActivity {
         btnProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                orderProduct();
+                String Method = "";
+                if (rdCOD.isChecked()){
+                    Method = "COD";
+
+                }else if(rdWallet.isChecked()){
+                    Method = "Wallet";
+                }
+                else{
+                    Method = "UPI";
+                }
+                int bal = Integer.parseInt(session.getData(Constant.BALANCE));
+                int gt = Integer.parseInt(GrandTotal);
+                if (Method.equals("Wallet") && bal < gt){
+                    Toast.makeText(activity, "You Haven't Enough Balance", Toast.LENGTH_SHORT).show();
+                    return;
+
+                }
+                if (Method.equals("UPI")){
+                    try {
+                        Date c = Calendar.getInstance().getTime();
+                        SimpleDateFormat df = new SimpleDateFormat("ddMMyyyyHHmmss", Locale.getDefault());
+                        String transcId = df.format(c);
+                        makePayment(""+Double.parseDouble(GrandTotal), Constant.UPI_ID_VAL, session.getData(Constant.NAME), "Amount", transcId);
+
+
+                    }catch (Exception e){
+                        Log.d("PAYMENT_GATEWAY",e.getMessage());
+
+                    }
+
+                }else {
+                    orderProduct(Method);
+                }
+
             }
         });
 
 
     }
 
-    private void orderProduct()
+    private void makePayment(String amount, String upi, String name, String desc, String transactionId) {
+        // on below line we are calling an easy payment method and passing
+        // all parameters to it such as upi id,name, description and others.
+        final EasyUpiPayment easyUpiPayment = new EasyUpiPayment.Builder()
+                .with(this)
+                // on below line we are adding upi id.
+                .setPayeeVpa(upi)
+                // on below line we are setting name to which we are making oayment.
+                .setPayeeName(name)
+                // on below line we are passing transaction id.
+                .setTransactionId(transactionId)
+                // on below line we are passing transaction ref id.
+                .setTransactionRefId(transactionId)
+                // on below line we are adding description to payment.
+                .setDescription(desc)
+                // on below line we are passing amount which is being paid.
+                .setAmount(amount)
+                // on below line we are calling a build method to build this ui.
+                .build();
+        // on below line we are calling a start
+        // payment method to start a payment.
+        easyUpiPayment.startPayment();
+
+        // on below line we are calling a set payment
+        // status listener method to call other payment methods.
+        easyUpiPayment.setPaymentStatusListener(this);
+    }
+
+
+    private void orderProduct(String method)
     {
-        String Method = "";
-        if (rdCOD.isChecked()){
-            Method = "COD";
 
-        }else if(rdWallet.isChecked()){
-            Method = "Wallet";
-        }
-        else{
-            Method = "UPI";
-        }
-        int bal = Integer.parseInt(session.getData(Constant.BALANCE));
-        int gt = Integer.parseInt(GrandTotal);
-        if (Method.equals("Wallet") && bal < gt){
-            Toast.makeText(activity, "You Haven't Enough Balance", Toast.LENGTH_SHORT).show();
-            return;
-
-        }
 
         Map<String, String> params = new HashMap<>();
         params.put(Constant.USER_ID, session.getData(Constant.ID));
-        params.put(Constant.METHOD, Method);
+        params.put(Constant.METHOD, method);
         params.put(Constant.DELIVERY_CHARGES, DeliveryCharges);
         params.put(Constant.ADDRESS, DeliveryCharges);
         params.put(Constant.MOBILE, Mobile);
@@ -185,6 +239,39 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         }, activity, Constant.CHECKOUT_URL, params, true);
 
+
+    }
+
+    @Override
+    public void onTransactionCompleted(TransactionDetails transactionDetails) {
+
+    }
+
+    @Override
+    public void onTransactionSuccess() {
+        orderProduct("UPI");
+
+    }
+
+    @Override
+    public void onTransactionSubmitted() {
+
+    }
+
+    @Override
+    public void onTransactionFailed() {
+        Toast.makeText(activity, "Payment Failed", Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    @Override
+    public void onTransactionCancelled() {
+
+    }
+
+    @Override
+    public void onAppNotFound() {
 
     }
 }

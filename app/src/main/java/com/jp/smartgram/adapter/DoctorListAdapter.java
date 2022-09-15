@@ -55,6 +55,7 @@ public class DoctorListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             public void onClick(View view) {
                 Intent intent = new Intent(activity, AppointmentActivity.class);
                 intent.putExtra(Constant.DOCTOR_ID,doctor.getId());
+                intent.putExtra(Constant.FEES,doctor.getFees());
                 activity.startActivity(intent);
                 //((DoctorListActivity)activity).bookAppointment(doctor.getId());
             }

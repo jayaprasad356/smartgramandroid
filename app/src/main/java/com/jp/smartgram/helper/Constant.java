@@ -30,6 +30,7 @@ public class Constant {
     public static final String ID = "id";
     public static final String USER_ID = "user_id";
     public static final String DOCTOR_ID = "doctor_id";
+    public static final String FEES = "fees";
     public static final String TYPE = "type";
     public static final String AMOUNT = "amount";
     public static final String CATEGORY_ID = "category_id";
@@ -64,6 +65,8 @@ public class Constant {
     public static final String SUB_TOTAL = "sub_total";
     public static final String DELIVERY_CHARGES = "delivery_charges";
     public static final String GRAND_TOTAL = "grand_total";
+    public static final String APPOINTMENT_DATE = "appointment_date";
+    public static final String APPOINTMENT_TIME = "appointment_time";
     public static final String SUCCESS = "success";
     public static final String MESSAGE = "message";
 
@@ -74,4 +77,5 @@ public class Constant {
     public static final String PRODUCT_DESCRIPTION = "productdescription";
     public static final String PRODUCT_IMAGE = "productimage";
     public static final String PRODUCT_BRAND = "brand";
+    public static final String UPI_ID_VAL = "pos.5070940@indus";
 }

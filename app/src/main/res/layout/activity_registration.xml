@@ -93,6 +93,7 @@
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
+                    app:endIconMode="password_toggle"
                     android:hint="Password">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -109,6 +110,7 @@
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
+                    app:endIconMode="password_toggle"
                     android:hint="Confirm Password">
 
                     <com.google.android.material.textfield.TextInputEditText
