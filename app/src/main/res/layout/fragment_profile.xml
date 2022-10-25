@@ -26,13 +26,25 @@
             android:orientation="horizontal"
             >
 
-            <ImageView
-                android:id="@+id/viewuserimageview"
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_50sdp"
-                android:src="@drawable/logo"
+                app:cardCornerRadius="@dimen/_30sdp"
                 android:padding="@dimen/_5sdp"
-                android:layout_gravity="center" />
+                android:layout_marginRight="@dimen/_10sdp"
+                >
+
+                <ImageView
+                    android:id="@+id/viewuserimageview"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:src="@drawable/sglogo"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center" />
+
+
+            </com.google.android.material.card.MaterialCardView>
+
 
             <LinearLayout
                 android:layout_gravity="center"
