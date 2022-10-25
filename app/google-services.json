@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "519915159802",
+    "project_id": "smartgram-8de5b",
+    "storage_bucket": "smartgram-8de5b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519915159802:android:0fce40c917014aac0bc943",
+        "android_client_info": {
+          "package_name": "com.kapp.smartgram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "519915159802-uq6cl8pe66lul9ceiqk96abderjqrien.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kapp.smartgram",
+            "certificate_hash": "8881fdd25c090af0389a1c16daa2b5a47b80e897"
+          }
+        },
+        {
+          "client_id": "519915159802-r87fanstr1odhpuop7qlo642ofr7la59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfgocF2CUlD0By9WeRAVyYBTqwPTHoyvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "519915159802-r87fanstr1odhpuop7qlo642ofr7la59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
