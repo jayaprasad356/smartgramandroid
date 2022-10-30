@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,20 +22,24 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
                 android:layout_alignParentLeft="true"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="50dp"
-                app:cardCornerRadius="130dp">
+                app:cardCornerRadius="130dp"
+                android:backgroundTint="#fffdd7"
+                >
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/logo" />
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logo"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -104,13 +108,36 @@
         android:layout_marginRight="@dimen/_100sdp"
         app:cornerRadius="@dimen/_8sdp" />
 
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/signupbtn"
-        android:text="click here to signup"
-        android:textColor="@color/darkgray"
-        android:layout_gravity="center"
-        android:textSize="@dimen/_13sdp"/>
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        >
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account ?"
+            android:textColor="@color/darkgray"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_13sdp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signupbtn"
+            android:text=" Sign up"
+            android:textStyle="bold"
+            android:textColor="@color/green"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_13sdp"/>
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
