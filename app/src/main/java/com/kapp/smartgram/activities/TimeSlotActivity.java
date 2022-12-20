@@ -1,5 +1,8 @@
 package com.kapp.smartgram.activities;
 
+import androidx.annotation.ArrayRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.NonUiContext;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +30,9 @@ public class TimeSlotActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
+
+    @NonNull
+    @NonUiContext
     private ArrayList<TimeSlotModel> TimeSlotData() {
         ArrayList<TimeSlotModel> timeSlotModelArrayList = new ArrayList<>();
         timeSlotModelArrayList.add(new TimeSlotModel("some date","2:00 AM","2:00Am"));
