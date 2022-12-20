@@ -1,10 +1,12 @@
 package com.kapp.smartgram;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -37,7 +39,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
     String ProductId;
     String Price;
     Session session;
-    TextView tvPrice;
+    TextView tvPrice,tvPincodeStatus;
+    Button btnChange;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
         imgAdd = findViewById(R.id.btnAddQuantity);
         imgMinus = findViewById(R.id.btnMinusQuantity);
         tvPrice = findViewById(R.id.tvPrice);
+        tvPincodeStatus = findViewById(R.id.tvPincodeStatus);
+        btnChange = findViewById(R.id.btnChange);
 
         getproductname = getIntent().getStringExtra(Constant.PRODUCT_NAME);
         getdescription = getIntent().getStringExtra(Constant.PRODUCT_DESCRIPTION);
@@ -99,11 +104,56 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        addbtn.setEnabled(false);
+        addbtn.setBackgroundTintList(activity.getResources().getColorStateList(R.color.gray));
+        tvPincodeStatus.setTextColor(ContextCompat.getColor(activity, R.color.red));
+        tvPincodeStatus.setText("Item is not deliver at "+session.getData(Constant.PINCODE));
+        checkDeliverPincode();
+        btnChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity,UserUpdateActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 
 
     }
+    private void checkDeliverPincode()
+    {
+        Log.d("DELIVER_PIN",session.getData(Constant.PINCODE) + ProductId);
+        Map<String, String> params = new HashMap<>();
+        params.put(Constant.PINCODE,session.getData(Constant.PINCODE));
+        params.put(Constant.PRODUCT_ID,ProductId);
+        params.put(Constant.CHECK_DELIVERABILITY,"1");
+        ApiConfig.RequestToVolley((result, response) -> {
+            Log.d("DELIVER_RES",response);
+            if (result) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                        addbtn.setEnabled(true);
+                        addbtn.setBackgroundTintList(activity.getResources().getColorStateList(R.color.primary));
+                        tvPincodeStatus.setTextColor(ContextCompat.getColor(activity, R.color.green));
+                        tvPincodeStatus.setText("Item is deliver at "+session.getData(Constant.PINCODE));
+                    }
+                    else {
+                        addbtn.setEnabled(false);
+                        addbtn.setBackgroundTintList(activity.getResources().getColorStateList(R.color.gray));
+                        tvPincodeStatus.setTextColor(ContextCompat.getColor(activity, R.color.red));
+                        tvPincodeStatus.setText("Item is not deliver at "+session.getData(Constant.PINCODE));
+                    }
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, activity, Constant.CHECK_DELIVER_URL, params,true);
+
+
+    }
+
 
     private void addtoCart()
     {

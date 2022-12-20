@@ -27,6 +27,7 @@ public class Constant {
     public static final String SEARCH_LIST = BaseUrl + "searchproducts.php";
     public static final String SETTINGS_LIST = BaseUrl + "settings.php";
     public static final String CHANGE_PASSWORD_URL = BaseUrl + "changepassword.php";
+    public static final String CHECK_DELIVER_URL = BaseUrl + "check_deliver.php";
     public static final String MOBILE = "mobile";
     public static final String ID = "id";
     public static final String USER_ID = "user_id";
@@ -36,6 +37,7 @@ public class Constant {
     public static final String AMOUNT = "amount";
     public static final String CATEGORY_ID = "category_id";
     public static final String PRODUCT_ID = "product_id";
+    public static final String CHECK_DELIVERABILITY = "check_deliverability";
     public static final String CART_ID = "cart_id";
     public static final String QUANTITY = "quantity";
     public static final String NEWPASSWORD = "newpassword";

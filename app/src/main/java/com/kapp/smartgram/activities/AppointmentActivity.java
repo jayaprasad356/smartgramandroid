@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class AppointmentActivity extends AppCompatActivity implements PaymentSta
     Activity activity;
     String DoctorId;
     Session session;
+    ImageView backimg;
     TextView tvDate,tvTime;
     String AppointmentDate = "",AppointmentTime = "",Fees = "";
 
@@ -54,6 +56,7 @@ public class AppointmentActivity extends AppCompatActivity implements PaymentSta
         Fees = getIntent().getStringExtra(Constant.FEES);
         btnBookappointment = findViewById(R.id.btnBookappointment);
         etName = findViewById(R.id.etName);
+        backimg = findViewById(R.id.backimg);
         etMobile = findViewById(R.id.etMobile);
         etAge = findViewById(R.id.etAge);
         etDiseases = findViewById(R.id.etDiseases);
@@ -73,6 +76,12 @@ public class AppointmentActivity extends AppCompatActivity implements PaymentSta
             @Override
             public void onClick(View view) {
                 showTimePicker();
+            }
+        });
+        backimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
 
