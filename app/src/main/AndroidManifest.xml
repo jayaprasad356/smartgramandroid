@@ -7,10 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
-
-
-
     <queries>
 
         <!-- List of apps which you want to support for Intent pay -->
@@ -42,13 +38,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.kapp.smartgram.activities.AppointmentActivity"
+            android:name=".TimeSlotActivity"
             android:exported="false" />
         <activity
-            android:name="com.kapp.smartgram.activities.ContactUsActivity"
+            android:name=".AppointmentActivity"
             android:exported="false" />
         <activity
-            android:name="com.kapp.smartgram.activities.SearchActivity"
+            android:name=".ContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
             android:exported="false" />
         <activity
             android:name="com.kapp.smartgram.ChangepasswordActivity"
@@ -90,13 +89,13 @@
             android:name="com.kapp.smartgram.ProductActivity"
             android:exported="false" />
         <activity
-            android:name="com.kapp.smartgram.activities.LoginActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name="com.kapp.smartgram.OtpActivity"
             android:exported="false" />
         <activity
-            android:name="com.kapp.smartgram.activities.SplashActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -105,7 +104,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.kapp.smartgram.activities.RegistrationActivity"
+            android:name=".RegistrationActivity"
             android:exported="false" />
         <activity
             android:name="com.kapp.smartgram.MainActivity"

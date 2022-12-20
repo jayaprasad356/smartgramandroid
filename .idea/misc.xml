@@ -5,18 +5,36 @@
       <map>
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/drawable/custom_progress_dialog.xml" value="0.14" />
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/drawable/edittext_curve_bg.xml" value="0.14" />
-        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_appointment.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.14" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/drawable/redcircle.xml" value="0.14" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_appointment.xml" value="0.35436382754994744" />
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_cart.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_changepassword.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_checkout.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_contact_us.xml" value="0.3333333333333333" />
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_doctor_list.xml" value="0.17552083333333332" />
-        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_edit_address.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_notification.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_orders.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_otp.xml" value="0.3333333333333333" />
-        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_product_details.xml" value="0.16666666666666666" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_product.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_registration.xml" value="0.22" />
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_search.xml" value="0.17552083333333332" />
-        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/activity_wallet_history.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/customview.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/doctor_item.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/fragment_doctor.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/fragment_profile.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/fragment_search.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/image_slider_layout_item.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/list_item.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/notification_item.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/order_item.xml" value="0.4466666666666667" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/wallet_layout.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/layout/wallet_transaction_item.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/smartgram/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/smartgramandroid/app/src/main/res/layout/activity_cart.xml" value="0.2" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/smartgramandroid/app/src/main/res/layout/activity_doctor_list.xml" value="0.2" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/smartgramandroid/app/src/main/res/layout/activity_edit_address.xml" value="0.264" />
@@ -43,33 +61,19 @@
         <entry key="..\:/Users/visha/AndroidStudioProjects/smartgramandroid/app/src/main/res/layout/list_item.xml" value="0.2" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/smartgramandroid/app/src/main/res/layout/order_item.xml" value="0.264" />
         <entry key="..\:/Users/visha/AndroidStudioProjects/smartgramandroid/app/src/main/res/layout/product_item.xml" value="0.176" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/drawable-v24/ic_remove.xml" value="0.1255" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/drawable/greybackground.xml" value="0.1255" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_cart.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_category.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_changepassword.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_checkout.xml" value="0.18518518518518517" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_contact_us.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_login.xml" value="0.28556806550665303" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_appointment.xml" value="0.30885416666666665" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_login.xml" value="0.2988679352838745" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_main.xml" value="0.30885416666666665" />
         <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_notification.xml" value="0.20416666666666666" />
         <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_orders.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_product.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_product_details.xml" value="0.18981481481481483" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_registration.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_search.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_user_update.xml" value="0.25" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_otp.xml" value="0.30885416666666665" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_registration.xml" value="0.3046875" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_time_slot.xml" value="0.1986842105263158" />
         <entry key="..\:/smartgramandroid/app/src/main/res/layout/activity_wallet_history.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/cart_item.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/category_item.xml" value="0.20416666666666666" />
         <entry key="..\:/smartgramandroid/app/src/main/res/layout/customview.xml" value="0.2" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/fragment_home.xml" value="0.13148148148148148" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/smartgramandroid/app/src/main/res/layout/notification_item.xml" value="0.25" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/product_item.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/wallet_layout.xml" value="0.20416666666666666" />
-        <entry key="..\:/smartgramandroid/app/src/main/res/layout/wallet_transaction_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/smartgramandroid/app/src/main/res/layout/time_slot_model_lyt.xml" value="0.1986842105263158" />
       </map>
     </option>
   </component>
