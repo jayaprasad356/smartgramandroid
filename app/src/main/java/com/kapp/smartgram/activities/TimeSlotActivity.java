@@ -31,6 +31,7 @@ public class TimeSlotActivity extends AppCompatActivity {
     }
 
 
+
     @NonNull
     @NonUiContext
     private ArrayList<TimeSlotModel> TimeSlotData() {
